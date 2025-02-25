@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/white"
+    tools:context=".BarcodeScannerFragment">
+
+    <!-- TextView for the "BarCodeScan" title -->
+    <TextView
+        android:id="@+id/barcodeScannerTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:layout_marginBottom="15dp"
+        android:fontFamily="@font/inter_bold"
+        android:text="Barcode Scanner"
+        android:textColor="@color/black"
+        android:textSize="32sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@id/horizontalLine"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <!-- Horizontal line for visual separation -->
+    <View
+        android:id="@+id/horizontalLine"
+        android:layout_width="match_parent"
+        android:layout_height="1.5dp"
+        android:layout_marginTop="80dp"
+        android:background="#4D000000"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- Black background view under the horizontal line -->
+    <View
+        android:id="@+id/blackBg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/black"
+        app:layout_constraintTop_toBottomOf="@id/horizontalLine"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <!-- Flashlight icon on the left inside the black background -->
+    <ImageView
+        android:id="@+id/flashLightIV"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_margin="20dp"
+        android:src="@drawable/flash_light"
+        app:layout_constraintStart_toStartOf="@id/blackBg"
+        app:layout_constraintTop_toTopOf="@id/blackBg" />
+
+    <!-- Speaker icon on the right inside the black background -->
+    <ImageView
+        android:id="@+id/speakerIV"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_margin="20dp"
+        android:src="@drawable/speaker"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/blackBg" />
+
+    <!-- White rectangle placed in the center within the black background -->
+    <ImageView
+        android:id="@+id/whiteRectangle"
+        android:layout_width="335dp"
+        android:layout_height="250dp"
+        android:src="@drawable/white_rectangle"
+        android:layout_marginBottom="50dp"
+        app:layout_constraintBottom_toBottomOf="@id/blackBg"
+        app:layout_constraintEnd_toEndOf="@id/blackBg"
+        app:layout_constraintStart_toStartOf="@id/blackBg"
+        app:layout_constraintTop_toTopOf="@id/blackBg" />
+
+    <!-- Text showing the instruction to point at Barcode the ingredients label -->
+    <TextView
+        android:id="@+id/pointAtBarcodeTV"
+        android:layout_width="240dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/inter"
+        android:text="Point at Barcode"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="@id/whiteRectangle"
+        app:layout_constraintEnd_toEndOf="@id/whiteRectangle"
+        app:layout_constraintStart_toStartOf="@id/whiteRectangle"
+        app:layout_constraintTop_toTopOf="@id/whiteRectangle" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

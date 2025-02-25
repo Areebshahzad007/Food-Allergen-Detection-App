@@ -1,0 +1,360 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/main"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/white"
+    tools:context=".ProfileFragment">
+
+
+    <!-- TextView for the "Profile" title -->
+    <TextView
+        android:id="@+id/profileTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:fontFamily="@font/inter_bold"
+        android:text="Profile"
+        android:textColor="@color/black"
+        android:textSize="32sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@id/horizontalLine"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <!-- Horizontal line for visual separation -->
+    <View
+        android:id="@+id/horizontalLine"
+        android:layout_width="match_parent"
+        android:layout_height="1.5dp"
+        android:layout_marginTop="50dp"
+        android:background="#4D000000"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/profileIV"
+        android:layout_width="97dp"
+        android:layout_height="95dp"
+
+        android:src="@drawable/profile_image"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/horizontalLine" />
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/editIconIV"
+        android:layout_width="15dp"
+        android:layout_height="15dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:background="#B0ADAD"
+        android:src="@drawable/edit_icon"
+        app:layout_constraintBottom_toBottomOf="@id/profileIV"
+        app:layout_constraintEnd_toEndOf="@id/profileIV"
+        app:shapeAppearanceOverlay="@style/CircleImageViewStyle" />
+
+    <TextView
+        android:id="@+id/profileName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/inter"
+        android:text="Areeb Shahzad"
+        android:textColor="@color/black"
+        android:textSize="16dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/profileIV" />
+
+    <TextView
+        android:id="@+id/emailTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/inter"
+        android:text="ashah001@gold.ac.uk"
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/profileName" />
+
+    <TextView
+        android:id="@+id/generalSetting"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:background="#D9D9D9"
+        android:paddingVertical="8dp"
+        android:paddingLeft="10dp"
+        android:text="General Settings "
+        android:textColor="#8D8D8D"
+        android:textSize="20sp"
+        app:layout_constraintTop_toBottomOf="@id/emailTV" />
+
+    <androidx.appcompat.widget.SwitchCompat
+        android:id="@+id/switchBtn"
+        android:layout_width="45dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="20dp"
+        android:track="@drawable/custom_switch_track"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/generalSetting" />
+
+    <ImageView
+        android:id="@+id/brightnessIcon"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginLeft="15dp"
+        android:src="@drawable/brightness"
+        app:layout_constraintBottom_toBottomOf="@id/switchBtn"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/switchBtn" />
+
+    <TextView
+        android:id="@+id/modeTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:fontFamily="@font/inter"
+        android:text="Mode"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+
+        app:layout_constraintStart_toEndOf="@id/brightnessIcon"
+        app:layout_constraintTop_toTopOf="@id/switchBtn" />
+
+    <TextView
+        android:id="@+id/modeTypeTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:fontFamily="@font/inter"
+        android:text="Dark &amp; Light"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="@id/switchBtn"
+        app:layout_constraintStart_toEndOf="@id/brightnessIcon" />
+
+    <ImageView
+        android:id="@+id/keyIcon"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="10dp"
+        android:src="@drawable/key"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/brightnessIcon" />
+
+    <TextView
+        android:id="@+id/changePasswordTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:fontFamily="@font/inter"
+        android:text="Change Password"
+        android:textSize="16sp"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toBottomOf="@id/keyIcon"
+        app:layout_constraintStart_toEndOf="@id/keyIcon"
+        app:layout_constraintTop_toTopOf="@id/keyIcon" />
+
+    <ImageView
+        android:id="@+id/forwardBtn1"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="20dp"
+        android:src="@drawable/forward"
+        app:layout_constraintBottom_toBottomOf="@id/keyIcon"
+        app:layout_constraintEnd_toEndOf="@id/switchBtn"
+        app:layout_constraintStart_toStartOf="@id/switchBtn"
+        app:layout_constraintTop_toTopOf="@id/keyIcon" />
+
+    <ImageView
+        android:id="@+id/languageIcon"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="10dp"
+        android:src="@drawable/language"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/keyIcon" />
+
+    <TextView
+        android:id="@+id/languageTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:fontFamily="@font/inter"
+        android:text="Language"
+        android:textSize="16sp"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toBottomOf="@id/languageIcon"
+        app:layout_constraintStart_toEndOf="@id/languageIcon"
+        app:layout_constraintTop_toTopOf="@id/languageIcon" />
+
+    <ImageView
+        android:id="@+id/forwardBtn2"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="20dp"
+        android:src="@drawable/forward"
+        app:layout_constraintBottom_toBottomOf="@id/languageIcon"
+        app:layout_constraintEnd_toEndOf="@id/switchBtn"
+        app:layout_constraintStart_toStartOf="@id/switchBtn"
+        app:layout_constraintTop_toTopOf="@id/languageIcon" />
+
+    <TextView
+        android:id="@+id/yourAllergensTV"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="#D9D9D9"
+        android:paddingVertical="8dp"
+        android:paddingLeft="10dp"
+        android:text="Your Allergens "
+        android:textColor="#8D8D8D"
+        android:textSize="20sp"
+        app:layout_constraintTop_toBottomOf="@id/languageIcon" />
+
+    <ImageView
+        android:id="@+id/allergiesIcon"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="10dp"
+        android:src="@drawable/peanuts"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/yourAllergensTV" />
+
+    <TextView
+        android:id="@+id/addAllergiesTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:fontFamily="@font/inter"
+        android:text="Add Allergies"
+        android:textSize="16sp"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toBottomOf="@id/allergiesIcon"
+        app:layout_constraintStart_toEndOf="@id/allergiesIcon"
+        app:layout_constraintTop_toTopOf="@id/allergiesIcon" />
+
+    <ImageView
+        android:id="@+id/forwardBtn3"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="20dp"
+        android:src="@drawable/forward"
+        app:layout_constraintBottom_toBottomOf="@id/allergiesIcon"
+        app:layout_constraintEnd_toEndOf="@id/switchBtn"
+        app:layout_constraintStart_toStartOf="@id/switchBtn"
+        app:layout_constraintTop_toTopOf="@id/allergiesIcon" />
+
+    <TextView
+        android:id="@+id/informationTV"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="#D9D9D9"
+        android:paddingVertical="8dp"
+        android:paddingLeft="10dp"
+        android:text="Information"
+        android:textColor="#8D8D8D"
+        android:textSize="20sp"
+        app:layout_constraintTop_toBottomOf="@id/allergiesIcon" />
+
+    <ImageView
+        android:id="@+id/aboutAppIcon"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="10dp"
+        android:src="@drawable/smartphone"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/informationTV" />
+
+    <TextView
+        android:id="@+id/aboutAppTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:fontFamily="@font/inter"
+        android:text="About App"
+        android:textSize="16sp"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toBottomOf="@id/aboutAppIcon"
+        app:layout_constraintStart_toEndOf="@id/aboutAppIcon"
+        app:layout_constraintTop_toTopOf="@id/aboutAppIcon" />
+
+    <ImageView
+        android:id="@+id/forwardBtn4"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="20dp"
+        android:src="@drawable/forward"
+        app:layout_constraintBottom_toBottomOf="@id/aboutAppIcon"
+        app:layout_constraintEnd_toEndOf="@id/switchBtn"
+        app:layout_constraintStart_toStartOf="@id/switchBtn"
+        app:layout_constraintTop_toTopOf="@id/aboutAppIcon" />
+
+    <ImageView
+        android:id="@+id/privacyPolicyIcon"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="10dp"
+        android:src="@drawable/privacy_policy"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/aboutAppTV" />
+
+    <TextView
+        android:id="@+id/privacyPolicyTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:fontFamily="@font/inter"
+        android:text="Privacy Policy"
+        android:textSize="16sp"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toBottomOf="@id/privacyPolicyIcon"
+        app:layout_constraintStart_toEndOf="@id/privacyPolicyIcon"
+        app:layout_constraintTop_toTopOf="@id/privacyPolicyIcon" />
+
+    <ImageView
+        android:id="@+id/forwardBtn5"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="20dp"
+        android:src="@drawable/forward"
+        app:layout_constraintBottom_toBottomOf="@id/privacyPolicyIcon"
+        app:layout_constraintEnd_toEndOf="@id/switchBtn"
+        app:layout_constraintStart_toStartOf="@id/switchBtn"
+        app:layout_constraintTop_toTopOf="@id/privacyPolicyIcon" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/logOutBtn"
+        android:layout_width="136dp"
+        android:layout_height="39dp"
+        android:layout_marginHorizontal="25dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/button_bg"
+        android:fontFamily="@font/inter"
+        android:text="Log out"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        app:layout_constraintTop_toBottomOf="@id/privacyPolicyIcon"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

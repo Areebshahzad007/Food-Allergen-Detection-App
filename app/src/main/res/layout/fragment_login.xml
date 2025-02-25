@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/white"
+    tools:context=".LoginFragment">
+
+
+    <!--Logo (ImageView) at the top-->
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="169dp"
+        android:layout_height="167dp"
+        android:layout_marginTop="100dp"
+        android:src="@drawable/logo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!--Title (TextView) displaying "Sign In".-->
+    <TextView
+        android:id="@+id/signInTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:fontFamily="@font/inter_bold"
+        android:text="Sign In"
+        android:textColor="@color/black"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/logo" />
+
+    <!--Email and Password EditText fields, with appropriate hints and styles.-->
+    <EditText
+        android:id="@+id/emailET"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="30dp"
+        android:layout_marginTop="40dp"
+        android:background="@drawable/edit_text_bg"
+        android:fontFamily="@font/inter"
+        android:hint="Email"
+        android:textColorHint="#8D8D8D"
+        android:inputType="textEmailAddress"
+        android:padding="6dp"
+        android:textSize="20sp"
+        app:layout_constraintTop_toBottomOf="@id/signInTV" />
+
+    <EditText
+        android:id="@+id/passwordET"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="30dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/edit_text_bg"
+        android:fontFamily="@font/inter"
+        android:hint="Password"
+        android:textColorHint="#8D8D8D"
+        android:inputType="textPassword"
+        android:padding="6dp"
+        android:textSize="20sp"
+        app:layout_constraintTop_toBottomOf="@id/emailET" />
+
+    <ImageView
+        android:id="@+id/passwordVisibility"
+        android:layout_width="32dp"
+        android:layout_height="28dp"
+        android:layout_marginRight="10dp"
+        android:src="@drawable/show_password"
+        app:layout_constraintBottom_toBottomOf="@id/passwordET"
+        app:layout_constraintEnd_toEndOf="@id/passwordET"
+        app:layout_constraintTop_toTopOf="@id/passwordET" />
+
+    <ImageView
+        android:id="@+id/rectangle_shape"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:src="@drawable/rectangle"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+    <!--Forgot Password (TextView) for password recovery.-->
+    <TextView
+        android:id="@+id/forgotPasswordTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/inter"
+        android:text="Forgot Your Password?"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="@id/passwordET"
+        app:layout_constraintTop_toBottomOf="@id/passwordET" />
+
+    <!--Sign In Button (AppCompatButton) for authentication.-->
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/signInBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="25dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/button_bg"
+        android:fontFamily="@font/inter"
+        android:text="Sign In"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        app:layout_constraintTop_toBottomOf="@id/forgotPasswordTV" />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:gravity="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/signInBtn">
+
+        <TextView
+            android:id="@+id/noAccountTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/inter"
+            android:text="Don’t have an account?"
+            android:textSize="12sp" />
+
+
+        <TextView
+            android:id="@+id/signUpTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/inter"
+            android:text="Sign Up "
+            android:textStyle="bold"
+            android:layout_marginLeft="5dp"
+            android:textSize="12sp" />
+
+    </LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">Food Allergen</string>
+    <string name="about_app2">Designed for simplicity and reliability, this app is your companion for managing food allergies effortlessly!</string>
+    <string name="key_features">&#8226; Personalised allergen alerts.\n&#8226; Barcode and ingredient label scanning.\n&#8226; Clear safety alerts and product history.</string>
+    <string name="privacy_policy3">&#8226; Personal details (name, email, &#160;&#160;allergens) for your profile.\n&#8226; Product scan data (barcode and OCR) &#160;&#160;for allergen detection.</string>
+    <string name="privacy_policy5">&#8226; To provide personalised allergen alerts &#160;&#160;and improve the app experience.\n&#8226; We do not sell or share your data with &#160;&#160;third parties.</string>
+    <string name="privacy_policy7">&#8226; You can view, update, or delete your &#160;&#160;data anytime.</string>
+    <string name="privacy_policy9">&#8226; Your data is securely stored and &#160;&#160;protected.</string>
+    <string name="privacy_policy10">
+    If you have any questions, contact us at
+    <a href="mailto:enquiry@fad.com">enquiry@fad.com</a>
+</string>
+
+
+    <string name="about_app1">The Food Allergen Detection App helps you shop safely by identifying allergens in food products. With barcode scanning, OCR technology, and a personalised allergen profile, the app makes it easy to check if a product is safe for you.</string>
+    <string name="ingredients">INGREDIENTS: Pork, water, wheat flour (wheat flour, calcium carbonate, iron, niacin, thiamin), onion, rapeseed oil, parsley, sage, thyme, salt, yeast extract, black pepper, onion powder.</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+</resources>
