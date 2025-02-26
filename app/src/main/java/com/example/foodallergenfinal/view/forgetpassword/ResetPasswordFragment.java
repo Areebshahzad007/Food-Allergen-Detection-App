@@ -1,4 +1,4 @@
-package com.example.foodallergenfinal.view;
+package com.example.foodallergenfinal.view.forgetpassword;
 
 import android.os.Bundle;
 

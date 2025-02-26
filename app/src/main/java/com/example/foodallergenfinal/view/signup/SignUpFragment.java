@@ -2,15 +2,13 @@ package com.example.foodallergenfinal.view.signup;
 
 import android.content.Intent;
 import android.os.Bundle;
-
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
-
 import com.example.foodallergenfinal.R;
 import com.example.foodallergenfinal.auth.AuthRepository;
 import com.example.foodallergenfinal.databinding.FragmentSignUpBinding;
@@ -25,7 +23,7 @@ public class SignUpFragment extends Fragment {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         binding = FragmentSignUpBinding.inflate(inflater, container, false);
 
@@ -68,6 +66,7 @@ public class SignUpFragment extends Fragment {
                 Toast.makeText(requireContext(), "Sign Up Successful", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(getActivity(), HomeActivity.class);
                 startActivity(intent);
+                assert getActivity() != null;
                 getActivity().finish();
             } else {
                 Toast.makeText(requireContext(), "Sign Up Failed", Toast.LENGTH_SHORT).show();

@@ -1,4 +1,4 @@
-package com.example.foodallergenfinal;
+package com.example.foodallergenfinal.view.profile.profile_underpage;
 
 import android.os.Bundle;
 
@@ -8,12 +8,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.foodallergenfinal.R;
+
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link PrivacyPolicyFragment#newInstance} factory method to
+ * Use the {@link AddAllergiesFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class PrivacyPolicyFragment extends Fragment {
+public class AddAllergiesFragment extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -24,7 +26,7 @@ public class PrivacyPolicyFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public PrivacyPolicyFragment() {
+    public AddAllergiesFragment() {
         // Required empty public constructor
     }
 
@@ -34,11 +36,11 @@ public class PrivacyPolicyFragment extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment PrivacyPolicyFragment.
+     * @return A new instance of fragment AddAllergiesFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static PrivacyPolicyFragment newInstance(String param1, String param2) {
-        PrivacyPolicyFragment fragment = new PrivacyPolicyFragment();
+    public static AddAllergiesFragment newInstance(String param1, String param2) {
+        AddAllergiesFragment fragment = new AddAllergiesFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -59,6 +61,6 @@ public class PrivacyPolicyFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_privacy_policy, container, false);
+        return inflater.inflate(R.layout.fragment_add_allergies, container, false);
     }
 }

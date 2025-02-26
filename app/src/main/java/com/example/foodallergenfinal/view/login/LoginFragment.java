@@ -3,15 +3,14 @@ package com.example.foodallergenfinal.view.login;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
-import androidx.fragment.app.Fragment;
-import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
 
+import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
+import androidx.navigation.Navigation;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
-
 import com.example.foodallergenfinal.R;
 import com.example.foodallergenfinal.auth.AuthRepository;
 import com.example.foodallergenfinal.databinding.FragmentLoginBinding;
@@ -23,7 +22,7 @@ public class LoginFragment extends Fragment {
 
     @SuppressLint("SetTextI18n")
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         binding = FragmentLoginBinding.inflate(inflater, container, false);
 
@@ -34,6 +33,7 @@ public class LoginFragment extends Fragment {
         if (authRepository.isLoggedIn()) {
             Intent intent = new Intent(getActivity(), HomeActivity.class);
             startActivity(intent);
+            assert getActivity() != null;
             getActivity().finish();
         }
 
@@ -80,6 +80,7 @@ public class LoginFragment extends Fragment {
                 Toast.makeText(getActivity(), "Login Successful", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(getActivity(), HomeActivity.class);
                 startActivity(intent);
+                assert getActivity() != null;
                 getActivity().finish();
             } else {
                 Toast.makeText(getActivity(), "Login Failed", Toast.LENGTH_SHORT).show();
