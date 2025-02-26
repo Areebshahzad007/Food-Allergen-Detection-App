@@ -104,4 +104,14 @@
         app:layout_constraintStart_toStartOf="@id/ocrIV"
         app:layout_constraintTop_toBottomOf="@id/ocrIV" />
 
+    <Button
+        android:id="@+id/btn_logout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="logout"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="48dp"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

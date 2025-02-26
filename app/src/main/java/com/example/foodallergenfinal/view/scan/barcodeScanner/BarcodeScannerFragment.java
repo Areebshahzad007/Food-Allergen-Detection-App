@@ -66,6 +66,8 @@ public class BarcodeScannerFragment extends Fragment {
         // user demo allergic
         userAllergic = new ArrayList<>();
         userAllergic.add("milk");
+        userAllergic.add("nut");
+        userAllergic.add("peanut");
 
         // Observe the LiveData for product details
         viewModel.getProduct().observe(getViewLifecycleOwner(), responseProduct -> {
@@ -73,6 +75,11 @@ public class BarcodeScannerFragment extends Fragment {
             if (responseProduct != null) {
                 List<String> allergislist = responseProduct.getProduct().getAllergensTags();
                 List<String> allergensTags = new ArrayList<>();
+
+                String category = responseProduct.getProduct().getCategoriesTags().get(0);
+                //category = category.substring(3);
+
+                Log.d("TAG", "category: "+ category);
 
                 if (allergislist != null && !allergislist.isEmpty()) {
                     StringBuilder allergensText = new StringBuilder();
@@ -99,7 +106,7 @@ public class BarcodeScannerFragment extends Fragment {
                                 binding.ltAllergensDetected.setVisibility(View.VISIBLE);
 
                                 viewModel.fetchCategoryProducts(
-                                        responseProduct.getProduct().getKeywords().get(0),
+                                        category.substring(3),
                                         "-en:milk",
                                         10
                                 );
@@ -119,7 +126,7 @@ public class BarcodeScannerFragment extends Fragment {
 
             } else {
                 // Handle the error case
-                Toast.makeText(requireContext(), "Product not found", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(requireContext(), "Product not found", Toast.LENGTH_SHORT).show();
             }
 
         });
@@ -128,7 +135,6 @@ public class BarcodeScannerFragment extends Fragment {
         viewModel.getCategoryProducts().observe(getViewLifecycleOwner(), categoryProductResponse -> {
             if (categoryProductResponse != null) {
                 List<CategoryProductResponse.Product> products = categoryProductResponse.getProducts();
-                //binding.tryThisInsteadTV.setText(products.get(0).getProductName());
                 // recycler view
                 adapter = new AlternativeProductAdapter(products);
                 binding.recyclerView.setAdapter(adapter);
@@ -210,6 +216,7 @@ public class BarcodeScannerFragment extends Fragment {
                             getActivity().runOnUiThread(() -> {
                                 binding.scannedDataTextView.setText("Scanned Code: " + code);
                                 viewModel.fetchProductDetails("6111242100992");
+                                //6111242100992
                             });
 
                         }

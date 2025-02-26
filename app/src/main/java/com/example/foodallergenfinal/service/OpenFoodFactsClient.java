@@ -5,7 +5,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class OpenFoodFactsClient {
 
-    private static final String BASE_URL = "https://world.openfoodfacts.org/api/v2/";
+    private static final String BASE_URL = "https://world.openfoodfacts.org/api/v0/";
     private static Retrofit retrofit = null;
 
     public static OpenFoodFactsApiService getApiService() {

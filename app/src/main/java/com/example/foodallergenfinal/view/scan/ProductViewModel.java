@@ -35,7 +35,7 @@ public class ProductViewModel extends ViewModel {
             public void onResponse(Call<ResponseProduct> call, Response<ResponseProduct> response) {
                 if (response.isSuccessful() && response.body() != null) {
                     // Post the response body into LiveData
-                    Log.d("API_RESPONSE", "Response Body: " + response.body());
+                    Log.d("TAG", "Response Body: " + response.body());
 
                     productLiveData.setValue(response.body());
                 } else {

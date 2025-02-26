@@ -1,5 +1,6 @@
 plugins {
     alias(libs.plugins.android.application)
+    alias(libs.plugins.gms.google.services)
 }
 
 android {
@@ -47,6 +48,10 @@ dependencies {
     // Navigation Component (Check if available in Version Catalog)
     implementation(libs.navigation.fragment)
     implementation(libs.navigation.ui)
+
+    // firebase auth
+    implementation(platform(libs.firebase.bom))
+    implementation(libs.firebase.auth.ktx)
 
     // retrofit
     implementation(libs.retrofit)

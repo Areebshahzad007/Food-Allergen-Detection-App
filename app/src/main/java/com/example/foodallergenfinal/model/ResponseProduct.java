@@ -53,9 +53,6 @@ public class ResponseProduct {
 
     @Keep
     public static class Product {
-        @SerializedName("_keywords")
-        private List<String> keywords;
-
         @SerializedName("allergens_from_user")
         private String allergensFromUser;
 
@@ -231,14 +228,6 @@ public class ResponseProduct {
 
         public void setQuantity(String quantity) {
             this.quantity = quantity;
-        }
-
-        public List<String> getKeywords() {
-            return keywords;
-        }
-
-        public void setKeywords(List<String> keywords) {
-            this.keywords = keywords;
         }
     }
 }
