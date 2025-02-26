@@ -7,97 +7,50 @@
 
     <fragment
         android:id="@+id/loginFragment"
-        android:name="com.example.foodallergenfinal.LoginFragment"
+        android:name="com.example.foodallergenfinal.view.login.LoginFragment"
         android:label="fragment_login"
-        tools:layout="@layout/fragment_login" />
+        tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/action_loginFragment_to_signUpFragment"
+            app:destination="@id/signUpFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_resetPasswordFragment"
+            app:destination="@id/resetPasswordFragment" />
+    </fragment>
     <fragment
         android:id="@+id/signUpFragment"
-        android:name="com.example.foodallergenfinal.SignUpFragment"
+        android:name="com.example.foodallergenfinal.view.signup.SignUpFragment"
         android:label="fragment_sign_up"
-        tools:layout="@layout/fragment_sign_up" />
-    <fragment
-        android:id="@+id/historyFragment"
-        android:name="com.example.foodallergenfinal.HistoryFragment"
-        android:label="fragment_history"
-        tools:layout="@layout/fragment_history" />
-    <fragment
-        android:id="@+id/scanFragment"
-        android:name="com.example.foodallergenfinal.ScanFragment"
-        android:label="fragment_scan"
-        tools:layout="@layout/fragment_scan" />
-    <fragment
-        android:id="@+id/OCRScannerFragment"
-        android:name="com.example.foodallergenfinal.OCRScannerFragment"
-        android:label="fragment_o_c_r_scanner"
-        tools:layout="@layout/fragment_o_c_r_scanner" />
-    <fragment
-        android:id="@+id/OCRScannerAllergenDetectionFragment"
-        android:name="com.example.foodallergenfinal.OCRScannerAllergenDetectionFragment"
-        android:label="fragment_o_c_r_scanner_allergen_detection"
-        tools:layout="@layout/fragment_o_c_r_scanner_allergen_detection" />
-    <fragment
-        android:id="@+id/OCRScannerNoAllergenDetectionFragment"
-        android:name="com.example.foodallergenfinal.OCRScannerNoAllergenDetectionFragment"
-        android:label="fragment_o_c_r_scanner_no_allergen_detection"
-        tools:layout="@layout/fragment_o_c_r_scanner_no_allergen_detection" />
+        tools:layout="@layout/fragment_sign_up" >
+        <action
+            android:id="@+id/action_signUpFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
     <fragment
         android:id="@+id/resetPasswordFragment"
         android:name="com.example.foodallergenfinal.ResetPasswordFragment"
         android:label="fragment_reset_password"
-        tools:layout="@layout/fragment_reset_password" />
+        tools:layout="@layout/fragment_reset_password" >
+        <action
+            android:id="@+id/action_resetPasswordFragment_to_checkMailFragment"
+            app:destination="@id/checkMailFragment" />
+    </fragment>
     <fragment
         android:id="@+id/checkMailFragment"
         android:name="com.example.foodallergenfinal.CheckMailFragment"
         android:label="fragment_check_mail"
-        tools:layout="@layout/fragment_check_mail" />
+        tools:layout="@layout/fragment_check_mail" >
+        <action
+            android:id="@+id/action_checkMailFragment_to_createNewPasswordFragment"
+            app:destination="@id/createNewPasswordFragment" />
+    </fragment>
     <fragment
         android:id="@+id/createNewPasswordFragment"
         android:name="com.example.foodallergenfinal.CreateNewPasswordFragment"
         android:label="fragment_create_new_password"
-        tools:layout="@layout/fragment_create_new_password" />
-    <fragment
-        android:id="@+id/barcodeScannerFragment"
-        android:name="com.example.foodallergenfinal.BarcodeScannerFragment"
-        android:label="fragment_barcode_scanner"
-        tools:layout="@layout/fragment_barcode_scanner" />
-    <fragment
-        android:id="@+id/barcodeScannerAllergenDetectionFragment"
-        android:name="com.example.foodallergenfinal.BarcodeScannerAllergenDetectionFragment"
-        android:label="fragment_barcode_scanner_allergen_detection"
-        tools:layout="@layout/fragment_barcode_scanner_allergen_detection" />
-    <fragment
-        android:id="@+id/barcodeScannerNoAllergenDetectionFragment"
-        android:name="com.example.foodallergenfinal.BarcodeScannerNoAllergenDetectionFragment"
-        android:label="fragment_barcode_scanner_no_allergen_detection"
-        tools:layout="@layout/fragment_barcode_scanner_no_allergen_detection" />
-    <fragment
-        android:id="@+id/profileFragment"
-        android:name="com.example.foodallergenfinal.ProfileFragment"
-        android:label="fragment_profile"
-        tools:layout="@layout/fragment_profile" />
-    <fragment
-        android:id="@+id/changePasswordFragment"
-        android:name="com.example.foodallergenfinal.ChangePasswordFragment"
-        android:label="fragment_change_password"
-        tools:layout="@layout/fragment_change_password" />
-    <fragment
-        android:id="@+id/languageFragment"
-        android:name="com.example.foodallergenfinal.LanguageFragment"
-        android:label="fragment_language"
-        tools:layout="@layout/fragment_language" />
-    <fragment
-        android:id="@+id/addAllergiesFragment"
-        android:name="com.example.foodallergenfinal.AddAllergiesFragment"
-        android:label="fragment_add_allergies"
-        tools:layout="@layout/fragment_add_allergies" />
-    <fragment
-        android:id="@+id/aboutAppFragment"
-        android:name="com.example.foodallergenfinal.AboutAppFragment"
-        android:label="fragment_about_app"
-        tools:layout="@layout/fragment_about_app" />
-    <fragment
-        android:id="@+id/privacyPolicyFragment"
-        android:name="com.example.foodallergenfinal.PrivacyPolicyFragment"
-        android:label="fragment_privacy_policy"
-        tools:layout="@layout/fragment_privacy_policy" />
+        tools:layout="@layout/fragment_create_new_password" >
+        <action
+            android:id="@+id/action_createNewPasswordFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
 </navigation>

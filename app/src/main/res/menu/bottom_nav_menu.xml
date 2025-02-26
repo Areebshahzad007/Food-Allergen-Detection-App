@@ -3,15 +3,15 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
-        android:id="@+id/history"
+        android:id="@+id/nav_history"
         android:icon="@drawable/activity_history"
         android:title="History" />
     <item
-        android:id="@+id/scan"
+        android:id="@+id/nav_scan"
         android:icon="@drawable/scanner"
         android:title="Scan" />
     <item
-        android:id="@+id/profile"
+        android:id="@+id/nav_profile"
         android:icon="@drawable/account"
         android:title="Profile" />
 </menu>

@@ -29,6 +29,9 @@ android {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
     }
+    viewBinding {
+        enable = true
+    }
 }
 
 dependencies {
@@ -45,5 +48,29 @@ dependencies {
     implementation(libs.navigation.fragment)
     implementation(libs.navigation.ui)
 
+    // retrofit
+    implementation(libs.retrofit)
+    implementation(libs.retrofit.converter.gson)
+    implementation(libs.okhttp)
 
+    // coroutines
+    implementation(libs.coroutines.core)
+    implementation(libs.coroutines.android)
+
+    // view model
+    implementation(libs.lifecycle.viewmodel)
+    implementation(libs.lifecycle.livedata)
+    implementation(libs.fragment)
+
+    // ml-kit barcode
+    implementation(libs.ml.barcode)
+
+    // camera x
+    implementation(libs.camera.core)
+    implementation(libs.camera.lifecycle)
+    implementation(libs.camera.view)
+    implementation("androidx.camera:camera-camera2:1.3.0")
+
+    // glide
+    implementation (libs.glide)
 }

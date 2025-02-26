@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_nav"
+    app:startDestination="@id/scanFragment">
+
+    <fragment
+        android:id="@+id/historyFragment"
+        android:name="com.example.foodallergenfinal.HistoryFragment"
+        android:label="fragment_history"
+        tools:layout="@layout/fragment_history" >
+        <action
+            android:id="@+id/action_historyFragment_to_scanFragment"
+            app:destination="@id/scanFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/scanFragment"
+        android:name="com.example.foodallergenfinal.view.scan.ScanFragment"
+        android:label="fragment_scan"
+        tools:layout="@layout/fragment_scan" >
+        <action
+            android:id="@+id/action_scanFragment_to_barcodeScannerFragment"
+            app:destination="@id/barcodeScannerFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/OCRScannerFragment"
+        android:name="com.example.foodallergenfinal.OCRScannerFragment"
+        android:label="fragment_o_c_r_scanner"
+        tools:layout="@layout/fragment_o_c_r_scanner" />
+    <fragment
+        android:id="@+id/OCRScannerAllergenDetectionFragment"
+        android:name="com.example.foodallergenfinal.OCRScannerAllergenDetectionFragment"
+        android:label="fragment_o_c_r_scanner_allergen_detection"
+        tools:layout="@layout/fragment_o_c_r_scanner_allergen_detection" />
+    <fragment
+        android:id="@+id/OCRScannerNoAllergenDetectionFragment"
+        android:name="com.example.foodallergenfinal.OCRScannerNoAllergenDetectionFragment"
+        android:label="fragment_o_c_r_scanner_no_allergen_detection"
+        tools:layout="@layout/fragment_o_c_r_scanner_no_allergen_detection" />
+    <fragment
+        android:id="@+id/barcodeScannerFragment"
+        android:name="com.example.foodallergenfinal.view.scan.barcodeScanner.BarcodeScannerFragment"
+        android:label="fragment_barcode_scanner"
+        tools:layout="@layout/fragment_barcode_scanner" />
+    <fragment
+        android:id="@+id/barcodeScannerAllergenDetectionFragment"
+        android:name="com.example.foodallergenfinal.BarcodeScannerAllergenDetectionFragment"
+        android:label="fragment_barcode_scanner_allergen_detection"
+        tools:layout="@layout/fragment_barcode_scanner_allergen_detection" />
+    <fragment
+        android:id="@+id/barcodeScannerNoAllergenDetectionFragment"
+        android:name="com.example.foodallergenfinal.BarcodeScannerNoAllergenDetectionFragment"
+        android:label="fragment_barcode_scanner_no_allergen_detection"
+        tools:layout="@layout/fragment_barcode_scanner_no_allergen_detection" />
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.example.foodallergenfinal.ProfileFragment"
+        android:label="fragment_profile"
+        tools:layout="@layout/fragment_profile" />
+    <fragment
+        android:id="@+id/changePasswordFragment"
+        android:name="com.example.foodallergenfinal.ChangePasswordFragment"
+        android:label="fragment_change_password"
+        tools:layout="@layout/fragment_change_password" />
+    <fragment
+        android:id="@+id/languageFragment"
+        android:name="com.example.foodallergenfinal.LanguageFragment"
+        android:label="fragment_language"
+        tools:layout="@layout/fragment_language" />
+    <fragment
+        android:id="@+id/addAllergiesFragment"
+        android:name="com.example.foodallergenfinal.AddAllergiesFragment"
+        android:label="fragment_add_allergies"
+        tools:layout="@layout/fragment_add_allergies" />
+    <fragment
+        android:id="@+id/aboutAppFragment"
+        android:name="com.example.foodallergenfinal.AboutAppFragment"
+        android:label="fragment_about_app"
+        tools:layout="@layout/fragment_about_app" />
+    <fragment
+        android:id="@+id/privacyPolicyFragment"
+        android:name="com.example.foodallergenfinal.PrivacyPolicyFragment"
+        android:label="fragment_privacy_policy"
+        tools:layout="@layout/fragment_privacy_policy" />
+</navigation>
