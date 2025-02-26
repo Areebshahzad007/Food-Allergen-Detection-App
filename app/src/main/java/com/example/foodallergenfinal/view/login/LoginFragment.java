@@ -50,6 +50,10 @@ public class LoginFragment extends Fragment {
         binding.ltBtnSignup.setOnClickListener(v -> {
             Navigation.findNavController(binding.getRoot()).navigate(R.id.action_loginFragment_to_signUpFragment);
         });
+
+        binding.forgotPasswordTV.setOnClickListener(v -> {
+            Navigation.findNavController(binding.getRoot()).navigate(R.id.action_loginFragment_to_resetPasswordFragment);
+        });
     }
 
     private void loginUser() {

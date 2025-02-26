@@ -1,9 +1,6 @@
 package com.example.foodallergenfinal.auth;
 
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
 
 import java.util.concurrent.CompletableFuture;
 
@@ -58,6 +55,21 @@ public class AuthRepository {
     public void logout() {
         firebaseAuth.signOut();
         System.out.println(tag + "logout success");
+    }
+
+    public CompletableFuture<Boolean> forgotPassword(String email) {
+        CompletableFuture<Boolean> future = new CompletableFuture<>();
+        firebaseAuth.sendPasswordResetEmail(email)
+                .addOnCompleteListener(task -> {
+                    if (task.isSuccessful()) {
+                        System.out.println(tag + "Password reset email sent");
+                        future.complete(true);
+                    } else {
+                        System.out.println(tag + "Password reset failed");
+                        future.complete(false);
+                    }
+                });
+        return future;
     }
 }
 
