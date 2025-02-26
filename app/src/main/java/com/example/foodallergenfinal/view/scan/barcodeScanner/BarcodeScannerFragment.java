@@ -17,8 +17,6 @@ import androidx.camera.lifecycle.ProcessCameraProvider;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -26,17 +24,15 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
-import com.example.foodallergenfinal.R;
 import com.example.foodallergenfinal.adapter.AlternativeProductAdapter;
 import com.example.foodallergenfinal.databinding.FragmentBarcodeScannerBinding;
 import com.example.foodallergenfinal.model.CategoryProductResponse;
-import com.example.foodallergenfinal.view.ProductViewModel;
+import com.example.foodallergenfinal.view.scan.ProductViewModel;
 import com.google.mlkit.vision.barcode.BarcodeScanning;
 import com.google.mlkit.vision.barcode.common.Barcode;
 import com.google.mlkit.vision.common.InputImage;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -67,6 +63,7 @@ public class BarcodeScannerFragment extends Fragment {
 
         viewModel = new ViewModelProvider(this).get(ProductViewModel.class);
 
+        // user demo allergic
         userAllergic = new ArrayList<>();
         userAllergic.add("milk");
 

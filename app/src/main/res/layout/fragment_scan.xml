@@ -81,9 +81,8 @@
         app:layout_constraintStart_toStartOf="@id/barCodeScannerIV"
         app:layout_constraintTop_toBottomOf="@id/barCodeScannerIV" />
 
-
     <ImageView
-        android:id="@+id/tempImageIV"
+        android:id="@+id/ocrIV"
         android:layout_width="70dp"
         android:layout_height="70dp"
         android:src="@drawable/temp_image"
@@ -101,11 +100,8 @@
         android:textColor="@color/black"
         android:textSize="20sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@id/tempImageIV"
-        app:layout_constraintStart_toStartOf="@id/tempImageIV"
-        app:layout_constraintTop_toBottomOf="@id/tempImageIV" />
-
-
-
+        app:layout_constraintEnd_toEndOf="@id/ocrIV"
+        app:layout_constraintStart_toStartOf="@id/ocrIV"
+        app:layout_constraintTop_toBottomOf="@id/ocrIV" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

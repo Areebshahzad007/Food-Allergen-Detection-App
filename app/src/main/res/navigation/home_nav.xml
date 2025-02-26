@@ -22,10 +22,13 @@
         <action
             android:id="@+id/action_scanFragment_to_barcodeScannerFragment"
             app:destination="@id/barcodeScannerFragment" />
+        <action
+            android:id="@+id/action_scanFragment_to_OCRScannerFragment"
+            app:destination="@id/OCRScannerFragment" />
     </fragment>
     <fragment
         android:id="@+id/OCRScannerFragment"
-        android:name="com.example.foodallergenfinal.OCRScannerFragment"
+        android:name="com.example.foodallergenfinal.view.scan.ocrScaner.OCRScannerFragment"
         android:label="fragment_o_c_r_scanner"
         tools:layout="@layout/fragment_o_c_r_scanner" />
     <fragment
@@ -57,7 +60,23 @@
         android:id="@+id/profileFragment"
         android:name="com.example.foodallergenfinal.ProfileFragment"
         android:label="fragment_profile"
-        tools:layout="@layout/fragment_profile" />
+        tools:layout="@layout/fragment_profile" >
+        <action
+            android:id="@+id/action_profileFragment_to_changePasswordFragment"
+            app:destination="@id/changePasswordFragment" />
+        <action
+            android:id="@+id/action_profileFragment_to_languageFragment"
+            app:destination="@id/languageFragment" />
+        <action
+            android:id="@+id/action_profileFragment_to_addAllergiesFragment"
+            app:destination="@id/addAllergiesFragment" />
+        <action
+            android:id="@+id/action_profileFragment_to_aboutAppFragment"
+            app:destination="@id/aboutAppFragment" />
+        <action
+            android:id="@+id/action_profileFragment_to_privacyPolicyFragment"
+            app:destination="@id/privacyPolicyFragment" />
+    </fragment>
     <fragment
         android:id="@+id/changePasswordFragment"
         android:name="com.example.foodallergenfinal.ChangePasswordFragment"

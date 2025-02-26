@@ -24,6 +24,10 @@ public class ScanFragment extends Fragment {
             Navigation.findNavController(binding.getRoot()).navigate(R.id.action_scanFragment_to_barcodeScannerFragment);
         });
 
+        binding.ocrIV.setOnClickListener(v -> {
+            Navigation.findNavController(binding.getRoot()).navigate(R.id.action_scanFragment_to_OCRScannerFragment);
+        });
+
         return binding.getRoot();
     }
 }

@@ -65,6 +65,9 @@ dependencies {
     // ml-kit barcode
     implementation(libs.ml.barcode)
 
+    // ml kit ocr
+    implementation("com.google.android.gms:play-services-mlkit-text-recognition:19.0.1")
+
     // camera x
     implementation(libs.camera.core)
     implementation(libs.camera.lifecycle)
