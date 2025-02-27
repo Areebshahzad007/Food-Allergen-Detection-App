@@ -115,12 +115,12 @@ public class AuthRepository {
             return future;
         }
 
-        // Reauthenticate with old password
+        // ReAuthenticate with old password
         AuthCredential credential = EmailAuthProvider.getCredential(user.getEmail(), oldPassword);
         user.reauthenticate(credential)
                 .addOnCompleteListener(executor, authTask -> {
                     if (authTask.isSuccessful()) {
-                        // If reauthentication succeeds, update password
+                        // If re authentication succeeds, update password
                         user.updatePassword(newPassword)
                                 .addOnCompleteListener(executor, updateTask -> {
                                     if (updateTask.isSuccessful()) {
@@ -132,7 +132,7 @@ public class AuthRepository {
                                     }
                                 });
                     } else {
-                        System.err.println(TAG + "Reauthentication failed: " + authTask.getException());
+                        System.err.println(TAG + "ReAuthentication failed: " + authTask.getException());
                         future.complete(false);
                     }
                 });

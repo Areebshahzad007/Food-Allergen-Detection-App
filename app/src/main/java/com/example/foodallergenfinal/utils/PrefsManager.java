@@ -5,7 +5,7 @@ import android.content.SharedPreferences;
 import java.util.HashSet;
 import java.util.Set;
 
-public class PrefsManager{
+public class PrefsManager {
     private static final String PREF_NAME = "AllergyPrefs";
     private static final String KEY_SELECTED_ALLERGIES = "selected_allergies";
 

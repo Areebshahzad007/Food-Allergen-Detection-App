@@ -1,7 +1,5 @@
 package com.example.foodallergenfinal.view.profile.profile_underpage;
 
-import android.content.Context;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
@@ -14,7 +12,6 @@ import com.example.foodallergenfinal.model.AllergicItem;
 import com.example.foodallergenfinal.utils.PrefsManager;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -35,13 +32,19 @@ public class AddAllergiesFragment extends Fragment {
 
         allergicItems = new ArrayList<>();
         allergicItems.add(new AllergicItem(R.drawable.objects,"Celery", false));
-        allergicItems.add(new AllergicItem(R.drawable.white_egg,"Egg", false));
+        allergicItems.add(new AllergicItem(R.drawable.white_egg,"Eggs", false));
         allergicItems.add(new AllergicItem(R.drawable.fish_food,"Fish", false));
         allergicItems.add(new AllergicItem(R.drawable.gluten,"Gluten", false));
         allergicItems.add(new AllergicItem(R.drawable.lupin,"Lupine", false));
-        allergicItems.add(new AllergicItem(R.drawable.peanuts1,"Peanut", false));
+        allergicItems.add(new AllergicItem(R.drawable.peanuts1,"Peanuts", false));
         allergicItems.add(new AllergicItem(R.drawable.soy,"Soybean", false));
         allergicItems.add(new AllergicItem(R.drawable.hazelnut,"Tree Nut", false));
+
+        allergicItems.add(new AllergicItem(R.drawable.hazelnut,"Milk", false));
+        allergicItems.add(new AllergicItem(R.drawable.hazelnut,"Shellfish", false));
+        allergicItems.add(new AllergicItem(R.drawable.hazelnut,"Mustard", false));
+        allergicItems.add(new AllergicItem(R.drawable.hazelnut,"Sesame", false));
+        allergicItems.add(new AllergicItem(R.drawable.hazelnut,"Gelatin", false));
 
         // Load saved allergies
         Set<String> savedItems = PrefsManager.getSavedAllergies(requireContext());

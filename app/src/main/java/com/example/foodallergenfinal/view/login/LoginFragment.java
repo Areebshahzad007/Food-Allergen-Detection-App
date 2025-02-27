@@ -14,6 +14,7 @@ import android.widget.Toast;
 import com.example.foodallergenfinal.R;
 import com.example.foodallergenfinal.auth.AuthRepository;
 import com.example.foodallergenfinal.databinding.FragmentLoginBinding;
+import com.example.foodallergenfinal.utils.PrefsManager;
 import com.example.foodallergenfinal.view.HomeActivity;
 
 public class LoginFragment extends Fragment {
@@ -77,6 +78,7 @@ public class LoginFragment extends Fragment {
             binding.signInBtn.setEnabled(true);
 
             if (success) {
+                PrefsManager.setString(requireContext(), "email", email);
                 Toast.makeText(getActivity(), "Login Successful", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(getActivity(), HomeActivity.class);
                 startActivity(intent);

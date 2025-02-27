@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.foodallergenfinal.R;
+import com.example.foodallergenfinal.utils.PrefsManager;
 import com.example.foodallergenfinal.view.MainActivity;
 import com.example.foodallergenfinal.auth.AuthRepository;
 import com.example.foodallergenfinal.databinding.FragmentProfileBinding;
@@ -26,6 +27,12 @@ public class ProfileFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         binding = FragmentProfileBinding.inflate(inflater, container, false);
         authRepository = new AuthRepository();
+
+        String firstName = PrefsManager.getString(requireContext(), "first_name");
+        String lastName = PrefsManager.getString(requireContext(), "last_name");
+        String fullName = firstName + " " + lastName;
+        binding.profileName.setText(fullName);
+        binding.emailTV.setText(PrefsManager.getString(requireContext(), "email"));
 
         setupListeners();
 

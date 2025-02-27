@@ -8,7 +8,6 @@ import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.camera.core.CameraSelector;
-import androidx.camera.core.ImageAnalysis;
 import androidx.camera.core.ImageCapture;
 import androidx.camera.core.ImageCaptureException;
 import androidx.camera.core.ImageProxy;
@@ -16,6 +15,7 @@ import androidx.camera.core.Preview;
 import androidx.camera.lifecycle.ProcessCameraProvider;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
 
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -24,6 +24,8 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.example.foodallergenfinal.databinding.FragmentOCRScannerBinding;
+import com.example.foodallergenfinal.utils.PrefsManager;
+import com.example.foodallergenfinal.view.scan.ProductViewModel;
 import com.google.common.util.concurrent.ListenableFuture;
 import com.google.mlkit.vision.common.InputImage;
 import com.google.mlkit.vision.text.TextRecognition;
@@ -32,6 +34,7 @@ import com.google.mlkit.vision.text.latin.TextRecognizerOptions;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.atomic.AtomicReference;
@@ -51,16 +54,31 @@ public class OCRScannerFragment extends Fragment {
         // Inflate the layout for this fragment
         binding = FragmentOCRScannerBinding.inflate(inflater, container, false);
 
-        // user demo allergic
+        // Initialize userAllergic list
         userAllergic = new ArrayList<>();
-        userAllergic.add("milk");
-        userAllergic.add("nut");
-        userAllergic.add("peanut");
+
+        // Retrieve saved allergic items
+        Set<String> savedItems = PrefsManager.getSavedAllergies(requireContext());
+
+        // Add all saved allergic items to userAllergic list
+        if (savedItems != null) {
+            for (String item : savedItems) {
+                userAllergic.add(item.toLowerCase());
+                Log.d("TAG", "Added allergen: " + item);
+            }
+        }
+        Log.d("TAG", "Final userAllergic list: " + userAllergic);
 
         // Request camera permission
         requestCameraPermission();
         cameraExecutor = Executors.newSingleThreadExecutor();
 
+        setupListeners();
+
+        return binding.getRoot();
+    }
+
+    private void setupListeners() {
         // Set button listener to capture image
         binding.captureButton.setOnClickListener(v -> captureImage());
 
@@ -71,8 +89,6 @@ public class OCRScannerFragment extends Fragment {
         binding.cancelIV2.setOnClickListener(v -> {
             binding.ltNoAllergens.setVisibility(View.GONE);
         });
-
-        return binding.getRoot();
     }
 
     private void requestCameraPermission() {
@@ -180,4 +196,5 @@ public class OCRScannerFragment extends Fragment {
             binding.ltNoAllergens.setVisibility(View.VISIBLE);
         }
     }
+
 }

@@ -12,6 +12,7 @@ import android.widget.Toast;
 import com.example.foodallergenfinal.R;
 import com.example.foodallergenfinal.auth.AuthRepository;
 import com.example.foodallergenfinal.databinding.FragmentSignUpBinding;
+import com.example.foodallergenfinal.utils.PrefsManager;
 import com.example.foodallergenfinal.view.HomeActivity;
 
 public class SignUpFragment extends Fragment {
@@ -45,8 +46,10 @@ public class SignUpFragment extends Fragment {
         String email = binding.emailET.getText().toString().trim();
         String password = binding.passwordET.getText().toString().trim();
         String confirmPassword = binding.confirmPasswordET.getText().toString().trim();
+        String firstName = binding.firstNameET.getText().toString().trim();
+        String lastName = binding.lastNameET.getText().toString().trim();
 
-        if (email.isEmpty() || password.isEmpty() || confirmPassword.isEmpty()) {
+        if (email.isEmpty() || password.isEmpty() || confirmPassword.isEmpty() || firstName.isEmpty() || lastName.isEmpty()) {
             Toast.makeText(requireContext(), "Please fill all fields", Toast.LENGTH_SHORT).show();
             return;
         }
@@ -63,6 +66,10 @@ public class SignUpFragment extends Fragment {
             binding.signInBtn.setEnabled(true);
 
             if (success) {
+                PrefsManager.setString(requireContext(), "email", email);
+                PrefsManager.setString(requireContext(), "first_name", firstName);
+                PrefsManager.setString(requireContext(), "last_name", lastName);
+
                 Toast.makeText(requireContext(), "Sign Up Successful", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(getActivity(), HomeActivity.class);
                 startActivity(intent);

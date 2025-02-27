@@ -27,6 +27,7 @@ import android.widget.Toast;
 import com.example.foodallergenfinal.adapter.AlternativeProductAdapter;
 import com.example.foodallergenfinal.databinding.FragmentBarcodeScannerBinding;
 import com.example.foodallergenfinal.model.CategoryProductResponse;
+import com.example.foodallergenfinal.utils.PrefsManager;
 import com.example.foodallergenfinal.view.scan.ProductViewModel;
 import com.google.mlkit.vision.barcode.BarcodeScanning;
 import com.google.mlkit.vision.barcode.common.Barcode;
@@ -34,6 +35,7 @@ import com.google.mlkit.vision.common.InputImage;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
@@ -63,12 +65,39 @@ public class BarcodeScannerFragment extends Fragment {
 
         viewModel = new ViewModelProvider(this).get(ProductViewModel.class);
 
-        // user demo allergic
+        // Initialize userAllergic list
         userAllergic = new ArrayList<>();
-        userAllergic.add("milk");
-        userAllergic.add("nut");
-        userAllergic.add("peanut");
 
+        // Retrieve saved allergic items
+        Set<String> savedItems = PrefsManager.getSavedAllergies(requireContext());
+
+        // Add all saved allergic items to userAllergic list
+        if (savedItems != null) {
+            for (String item : savedItems) {
+                userAllergic.add(item.toLowerCase());
+                Log.d("TAG", "Added allergen: " + item);
+            }
+        }
+        Log.d("TAG", "Final userAllergic list: " + userAllergic);
+
+        // listeners
+        setupListeners();
+        observerListeners();
+
+        return binding.getRoot();
+    }
+
+    private void setupListeners() {
+        binding.cancelIV.setOnClickListener(v -> {
+            binding.ltAllergensDetected.setVisibility(View.GONE);
+        });
+
+        binding.cancelIV2.setOnClickListener(v -> {
+            binding.ltNoAllergens.setVisibility(View.GONE);
+        });
+    }
+
+    private void observerListeners() {
         // Observe the LiveData for product details
         viewModel.getProduct().observe(getViewLifecycleOwner(), responseProduct -> {
 
@@ -107,7 +136,7 @@ public class BarcodeScannerFragment extends Fragment {
 
                                 viewModel.fetchCategoryProducts(
                                         category.substring(3),
-                                        "-en:milk",
+                                        "-en:"+str2,
                                         10
                                 );
 
@@ -142,16 +171,6 @@ public class BarcodeScannerFragment extends Fragment {
                 Toast.makeText(requireContext(), "Alternative Product not found", Toast.LENGTH_SHORT).show();
             }
         });
-
-        binding.cancelIV.setOnClickListener(v -> {
-            binding.ltAllergensDetected.setVisibility(View.GONE);
-        });
-
-        binding.cancelIV2.setOnClickListener(v -> {
-            binding.ltNoAllergens.setVisibility(View.GONE);
-        });
-
-        return binding.getRoot();
     }
 
     private void requestCameraPermission() {

@@ -1,5 +1,6 @@
 package com.example.foodallergenfinal.view.profile.profile_underpage;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -12,6 +13,7 @@ import android.widget.Toast;
 import com.example.foodallergenfinal.R;
 import com.example.foodallergenfinal.auth.AuthRepository;
 import com.example.foodallergenfinal.databinding.FragmentChangePasswordBinding;
+import com.example.foodallergenfinal.view.MainActivity;
 
 public class ChangePasswordFragment extends Fragment {
     private FragmentChangePasswordBinding binding;
@@ -55,7 +57,11 @@ public class ChangePasswordFragment extends Fragment {
                     binding.updatePasswordBtn.setEnabled(true);
                     if (success) {
                         Toast.makeText(requireContext(), "Password updated successfully", Toast.LENGTH_SHORT).show();
-                        //requireActivity().onBackPressed();
+                        authRepository.logout();
+                        Intent intent = new Intent(getActivity(), MainActivity.class);
+                        startActivity(intent);
+                        assert getActivity() != null;
+                        getActivity().finish();
                     } else {
                         Toast.makeText(requireContext(), "Password update failed", Toast.LENGTH_SHORT).show();
                     }
