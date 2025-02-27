@@ -1,66 +1,63 @@
 package com.example.foodallergenfinal.view.profile.profile_underpage;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
-
 import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
 import com.example.foodallergenfinal.R;
+import com.example.foodallergenfinal.adapter.AllergicAdapter;
+import com.example.foodallergenfinal.databinding.FragmentAddAllergiesBinding;
+import com.example.foodallergenfinal.model.AllergicItem;
+import com.example.foodallergenfinal.utils.PrefsManager;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link AddAllergiesFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
 public class AddAllergiesFragment extends Fragment {
+    private FragmentAddAllergiesBinding binding;
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
+    private AllergicAdapter adapter;
+    private List<AllergicItem> allergicItems;
 
     public AddAllergiesFragment() {
         // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment AddAllergiesFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static AddAllergiesFragment newInstance(String param1, String param2) {
-        AddAllergiesFragment fragment = new AddAllergiesFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
-
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
-    }
-
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_add_allergies, container, false);
+        binding = FragmentAddAllergiesBinding.inflate(inflater, container, false);
+
+        allergicItems = new ArrayList<>();
+        allergicItems.add(new AllergicItem(R.drawable.objects,"Celery", false));
+        allergicItems.add(new AllergicItem(R.drawable.white_egg,"Egg", false));
+        allergicItems.add(new AllergicItem(R.drawable.fish_food,"Fish", false));
+        allergicItems.add(new AllergicItem(R.drawable.gluten,"Gluten", false));
+        allergicItems.add(new AllergicItem(R.drawable.lupin,"Lupine", false));
+        allergicItems.add(new AllergicItem(R.drawable.peanuts1,"Peanut", false));
+        allergicItems.add(new AllergicItem(R.drawable.soy,"Soybean", false));
+        allergicItems.add(new AllergicItem(R.drawable.hazelnut,"Tree Nut", false));
+
+        // Load saved allergies
+        Set<String> savedItems = PrefsManager.getSavedAllergies(requireContext());
+        for (AllergicItem item : allergicItems) {
+            item.setSelected(savedItems.contains(item.getName()));
+        }
+
+        adapter = new AllergicAdapter(allergicItems, this::saveAllergicItem);
+        binding.recAllergiesItem.setAdapter(adapter);
+
+        return binding.getRoot();
     }
+
+    // Method to save selected allergic item
+    private void saveAllergicItem(String itemName, boolean isSelected) {
+        PrefsManager.saveAllergicItem(requireContext(), itemName, isSelected);
+    }
+
 }

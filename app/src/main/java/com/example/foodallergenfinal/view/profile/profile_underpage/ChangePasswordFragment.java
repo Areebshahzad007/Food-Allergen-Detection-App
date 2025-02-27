@@ -55,7 +55,7 @@ public class ChangePasswordFragment extends Fragment {
                     binding.updatePasswordBtn.setEnabled(true);
                     if (success) {
                         Toast.makeText(requireContext(), "Password updated successfully", Toast.LENGTH_SHORT).show();
-                        requireActivity().onBackPressed();
+                        //requireActivity().onBackPressed();
                     } else {
                         Toast.makeText(requireContext(), "Password update failed", Toast.LENGTH_SHORT).show();
                     }
