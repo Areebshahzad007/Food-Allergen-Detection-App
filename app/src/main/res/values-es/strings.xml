@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Alérgenos Alimentarios</string>
+    <string name="about_app2">Diseñada para la simplicidad y confiabilidad, esta aplicación es tu compañera para gestionar alergias alimentarias sin esfuerzo.</string>
+    <string name="key_features">&#8226; Alertas personalizadas de alérgenos.\n&#8226; Escaneo de código de barras y etiquetas de ingredientes.\n&#8226; Alertas de seguridad claras e historial de productos.</string>
+    <string name="privacy_policy3">&#8226; Datos personales (nombre, correo electrónico, &#160;&#160;alérgenos) para tu perfil.\n&#8226; Datos de escaneo de productos (código de barras y OCR) &#160;&#160;para detección de alérgenos.</string>
+    <string name="privacy_policy5">&#8226; Para proporcionar alertas personalizadas de alérgenos &#160;&#160;y mejorar la experiencia de la aplicación.\n&#8226; No vendemos ni compartimos tus datos con &#160;&#160;terceros.</string>
+    <string name="privacy_policy7">&#8226; Puedes ver, actualizar o eliminar tus datos &#160;&#160;en cualquier momento.</string>
+    <string name="privacy_policy9">&#8226; Tus datos están almacenados de forma segura y &#160;&#160;protegidos.</string>
+    <string name="privacy_policy10">
+    Si tienes alguna pregunta, contáctanos en
+    <a href="mailto:enquiry@fad.com">enquiry@fad.com</a>
+</string>
+
+    <string name="about_app1">La Aplicación de Detección de Alérgenos Alimentarios te ayuda a comprar de forma segura identificando alérgenos en los productos. Con escaneo de código de barras, tecnología OCR y un perfil de alérgenos personalizado, puedes verificar fácilmente si un producto es seguro para ti.</string>
+    <string name="ingredients">INGREDIENTES: Cerdo, agua, harina de trigo (harina de trigo, carbonato de calcio, hierro, niacina, tiamina), cebolla, aceite de colza, perejil, salvia, tomillo, sal, extracto de levadura, pimienta negra, polvo de cebolla.</string>
+    <string name="hello_blank_fragment">Hola fragmento vacío</string>
+    <string name="language">Idioma</string>
+    <string name="profile">Perfil</string>
+    <string name="about_app">Acerca de la App</string>
+    <string name="key_features_label">Características Clave:</string>
+    <string name="select_allergies">Seleccionar Alergias</string>
+    <string name="barcode_scanner">Escáner de Código de Barras</string>
+    <string name="point_at_barcode">Apunta al Código de Barras</string>
+    <string name="scanned_data">Datos Escaneados</string>
+    <string name="history">Historial</string>
+    <string name="no_product_here">No hay Producto Aquí</string>
+    <string name="scan_your_product">Escanea tu Producto</string>
+    <string name="sign_in">Iniciar Sesión</string>
+    <string name="forgot_your_password">¿Olvidaste tu Contraseña?</string>
+    <string name="email">Correo Electrónico</string>
+    <string name="password">Contraseña</string>
+    <string name="don_t_have_an_account">¿No tienes una cuenta?</string>
+    <string name="sign_up">Regístrate</string>
+    <string name="ocr_scanner">Escáner OCR</string>
+    <string name="point_at_ingredients_label">Apunta a la Etiqueta de Ingredientes</string>
+    <string name="capture">Capturar</string>
+    <string name="privacy_policy">Política de Privacidad</string>
+    <string name="policy_1">Valoramos tu privacidad y estamos comprometidos con la protección de tu información personal.</string>
+    <string name="what_we_collect_label">Lo que Recopilamos:</string>
+    <string name="how_we_use_your_data_labal">Cómo Usamos tus Datos:</string>
+    <string name="your_rights_labal">Tus Derechos:</string>
+    <string name="security_label">Seguridad:</string>
+    <string name="general_settings">Configuraciones Generales</string>
+    <string name="change_password">Cambiar Contraseña</string>
+    <string name="add_allergies">Agregar Alergias</string>
+    <string name="log_out">Cerrar Sesión</string>
+    <string name="reset_password">Restablecer Contraseña</string>
+    <string name="res_pass_des">Ingresa el correo asociado con tu cuenta y te enviaremos un correo con instrucciones para restablecer tu contraseña.</string>
+    <string name="send">Enviar</string>
+    <string name="email_address">Correo Electrónico</string>
+    <string name="scan">Escanear</string>
+    <string name="choose_scanner">Elegir Escáner</string>
+    <string name="barcode">Código de Barras</string>
+    <string name="ocr">OCR</string>
+    <string name="already_have_an_account">¿Ya tienes una cuenta?</string>
+    <string name="login">Iniciar Sesión</string>
+    <string name="confirm_password">Confirmar Contraseña</string>
+    <string name="first_name">Nombre</string>
+    <string name="last_name">Apellido</string>
+    <string name="item_title_ex"><![CDATA[Sándwich de Pollo Asado y Relleno de Waitrose]]></string>
+</resources>

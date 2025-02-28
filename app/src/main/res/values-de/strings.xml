@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Lebensmittel-Allergen</string>
+    <string name="about_app2">Entwickelt für Einfachheit und Zuverlässigkeit, ist diese App Ihr Begleiter für das mühelose Management von Lebensmittelallergien!</string>
+    <string name="key_features">&#8226; Personalisierte Allergenwarnungen.\n&#8226; Barcode- und Zutatenetiketten-Scannen.\n&#8226; Klare Sicherheitswarnungen und Produktverlauf.</string>
+    <string name="privacy_policy3">&#8226; Persönliche Daten (Name, E-Mail, &#160;&#160;Allergene) für Ihr Profil.\n&#8226; Produkt-Scan-Daten (Barcode und OCR) &#160;&#160;zur Allergen-Erkennung.</string>
+    <string name="privacy_policy5">&#8226; Zur Bereitstellung personalisierter Allergenwarnungen &#160;&#160;und Verbesserung der App-Erfahrung.\n&#8226; Wir verkaufen oder teilen Ihre Daten nicht mit &#160;&#160;Dritten.</string>
+    <string name="privacy_policy7">&#8226; Sie können Ihre Daten jederzeit einsehen, aktualisieren oder löschen.</string>
+    <string name="privacy_policy9">&#8226; Ihre Daten werden sicher gespeichert und &#160;&#160;geschützt.</string>
+    <string name="privacy_policy10">
+    Falls Sie Fragen haben, kontaktieren Sie uns unter
+    <a href="mailto:enquiry@fad.com">enquiry@fad.com</a>
+</string>
+
+    <string name="about_app1">Die Lebensmittel-Allergen-Erkennungs-App hilft Ihnen, sicher einzukaufen, indem sie Allergene in Lebensmitteln identifiziert. Mit Barcode-Scanning, OCR-Technologie und einem personalisierten Allergenprofil können Sie leicht überprüfen, ob ein Produkt für Sie sicher ist.</string>
+    <string name="ingredients">ZUTATEN: Schweinefleisch, Wasser, Weizenmehl (Weizenmehl, Calciumcarbonat, Eisen, Niacin, Thiamin), Zwiebel, Rapsöl, Petersilie, Salbei, Thymian, Salz, Hefeextrakt, schwarzer Pfeffer, Zwiebelpulver.</string>
+    <string name="hello_blank_fragment">Hallo leeres Fragment</string>
+    <string name="language">Sprache</string>
+    <string name="profile">Profil</string>
+    <string name="about_app">Über die App</string>
+    <string name="key_features_label">Hauptfunktionen:</string>
+    <string name="select_allergies">Allergien auswählen</string>
+    <string name="barcode_scanner">Barcode-Scanner</string>
+    <string name="point_at_barcode">Barcode anvisieren</string>
+    <string name="scanned_data">Gescanntes Produkt</string>
+    <string name="history">Verlauf</string>
+    <string name="no_product_here">Kein Produkt hier</string>
+    <string name="scan_your_product">Scannen Sie Ihr Produkt</string>
+    <string name="sign_in">Anmelden</string>
+    <string name="forgot_your_password">Passwort vergessen?</string>
+    <string name="email">E-Mail</string>
+    <string name="password">Passwort</string>
+    <string name="don_t_have_an_account">Noch kein Konto?</string>
+    <string name="sign_up">Registrieren</string>
+    <string name="ocr_scanner">OCR-Scanner</string>
+    <string name="point_at_ingredients_label">Zutatenetikett anvisieren</string>
+    <string name="capture">Erfassen</string>
+    <string name="privacy_policy">Datenschutzrichtlinie</string>
+    <string name="policy_1">Wir schätzen Ihre Privatsphäre und verpflichten uns, Ihre persönlichen Daten zu schützen.</string>
+    <string name="what_we_collect_label">Was wir sammeln:</string>
+    <string name="how_we_use_your_data_labal">Wie wir Ihre Daten nutzen:</string>
+    <string name="your_rights_labal">Ihre Rechte:</string>
+    <string name="security_label">Sicherheit:</string>
+    <string name="general_settings">Allgemeine Einstellungen</string>
+    <string name="change_password">Passwort ändern</string>
+    <string name="add_allergies">Allergien hinzufügen</string>
+    <string name="log_out">Abmelden</string>
+    <string name="reset_password">Passwort zurücksetzen</string>
+    <string name="res_pass_des">Geben Sie die E-Mail-Adresse Ihres Kontos ein und wir senden Ihnen eine Anleitung zum Zurücksetzen Ihres Passworts.</string>
+    <string name="send">Senden</string>
+    <string name="email_address">E-Mail-Adresse</string>
+    <string name="scan">Scannen</string>
+    <string name="choose_scanner">Scanner wählen</string>
+    <string name="barcode">Barcode</string>
+    <string name="ocr">OCR</string>
+    <string name="already_have_an_account">Bereits ein Konto?</string>
+    <string name="login">Einloggen</string>
+    <string name="confirm_password">Passwort bestätigen</string>
+    <string name="first_name">Vorname</string>
+    <string name="last_name">Nachname</string>
+    <string name="item_title_ex"><![CDATA[Waitrose Roast Chicken & Stuffing Sandwich]]></string>
+</resources>

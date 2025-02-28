@@ -12,8 +12,8 @@
 </string>
 
 
-    <string name="about_app1">The Food Allergen Detection App helps you shop safely by identifying allergens in food products. With barcode scanning, OCR technology, and a personalised allergen profile, the app makes it easy to check if a product is safe for you.</string>
-    <string name="ingredients">INGREDIENTS: Pork, water, wheat flour (wheat flour, calcium carbonate, iron, niacin, thiamin), onion, rapeseed oil, parsley, sage, thyme, salt, yeast extract, black pepper, onion powder.</string>
+    <string name="about_app1">The Food Allergen Detection App helps you shop safely by identifying allergens in food products. With barcode scanning, OCR technology, and a personalised allergen profile, the app makes it easy to check if a product is safe for you.</string>
+    <string name="ingredients">INGREDIENTS: Pork, water, wheat flour (wheat flour, calcium carbonate, iron, niacin, thiamin), onion, rapeseed oil, parsley, sage, thyme, salt, yeast extract, black pepper, onion powder.</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="language">Language</string>
@@ -24,5 +24,41 @@
     <string name="barcode_scanner">Barcode Scanner</string>
     <string name="point_at_barcode">Point at Barcode</string>
     <string name="scanned_data">Scanned Data</string>
+    <string name="history">History</string>
+    <string name="no_product_here">No Product Here</string>
+    <string name="scan_your_product">Scan Your Product</string>
+    <string name="sign_in">Sign In</string>
+    <string name="forgot_your_password">Forgot Your Password?</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="don_t_have_an_account">Don’t have an account?</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="ocr_scanner">OCR Scanner</string>
+    <string name="point_at_ingredients_label">Point at Ingredients Label</string>
+    <string name="capture">Capture</string>
+    <string name="privacy_policy">Privacy Policy</string>
+    <string name="policy_1">We value your privacy and are committed to protecting your personal information.</string>
+    <string name="what_we_collect_label">What We Collect:</string>
+    <string name="how_we_use_your_data_labal">How We Use Your Data:</string>
+    <string name="your_rights_labal">Your Rights:</string>
+    <string name="security_label">Security:</string>
+    <string name="general_settings">General Settings</string>
+    <string name="change_password">Change Password</string>
+    <string name="add_allergies">Add Allergies</string>
+    <string name="log_out">Log out</string>
+    <string name="reset_password">Reset Password</string>
+    <string name="res_pass_des">Enter the email associated with your account and we\'ll send an email with instructions to reset your password.</string>
+    <string name="send">Send</string>
+    <string name="email_address">Email address</string>
+    <string name="scan">Scan</string>
+    <string name="choose_scanner">Choose Scanner</string>
+    <string name="barcode">Barcode</string>
+    <string name="ocr">OCR</string>
+    <string name="already_have_an_account">Already have an account?</string>
+    <string name="login">Login</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="first_name">First Name</string>
+    <string name="last_name">Last Name</string>
+    <string name="item_title_ex"><![CDATA[Waitrose Roast Chicken & Stuffing Sandwich]]></string>
 
 </resources>

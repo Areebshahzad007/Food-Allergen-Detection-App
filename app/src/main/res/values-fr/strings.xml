@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Allergène Alimentaire</string>
+    <string name="about_app2">Conçue pour la simplicité et la fiabilité, cette application est votre compagnon pour gérer les allergies alimentaires en toute simplicité !</string>
+    <string name="key_features">&#8226; Alertes personnalisées aux allergènes.\n&#8226; Scannage de code-barres et d’étiquettes d’ingrédients.\n&#8226; Alertes de sécurité claires et historique des produits.</string>
+    <string name="privacy_policy3">&#8226; Données personnelles (nom, e-mail, &#160;&#160;allergènes) pour votre profil.\n&#8226; Données de scan de produits (code-barres et OCR) &#160;&#160;pour la détection des allergènes.</string>
+    <string name="privacy_policy5">&#8226; Pour fournir des alertes personnalisées aux allergènes &#160;&#160;et améliorer l\'expérience de l\'application.\n&#8226; Nous ne vendons ni ne partageons vos données &#160;&#160;avec des tiers.</string>
+    <string name="privacy_policy7">&#8226; Vous pouvez consulter, mettre à jour ou supprimer &#160;&#160;vos données à tout moment.</string>
+    <string name="privacy_policy9">&#8226; Vos données sont stockées en toute sécurité et &#160;&#160;protégées.</string>
+    <string name="privacy_policy10">Si vous avez des questions, contactez-nous à <a href="mailto:enquiry@fad.com">enquiry@fad.com</a></string>
+    <string name="language">Langue</string>
+    <string name="profile">Profil</string>
+    <string name="about_app">À propos de l\'application</string>
+    <string name="key_features_label">Caractéristiques principales :</string>
+    <string name="select_allergies">Sélectionner les allergies</string>
+    <string name="barcode_scanner">Scanner de code-barres</string>
+    <string name="point_at_barcode">Pointer vers le code-barres</string>
+    <string name="scanned_data">Données scannées</string>
+    <string name="history">Historique</string>
+    <string name="no_product_here">Aucun produit ici</string>
+    <string name="scan_your_product">Scannez votre produit</string>
+    <string name="sign_in">Se connecter</string>
+    <string name="forgot_your_password">Mot de passe oublié ?</string>
+    <string name="email">E-mail</string>
+    <string name="password">Mot de passe</string>
+    <string name="don_t_have_an_account">Vous n\'avez pas de compte ?</string>
+    <string name="sign_up">S\'inscrire</string>
+    <string name="ocr_scanner">Scanner OCR</string>
+    <string name="point_at_ingredients_label">Pointer vers l’étiquette des ingrédients</string>
+    <string name="capture">Capturer</string>
+    <string name="privacy_policy">Politique de confidentialité</string>
+    <string name="policy_1">Nous respectons votre vie privée et nous engageons à protéger vos informations personnelles.</string>
+    <string name="what_we_collect_label">Ce que nous collectons :</string>
+    <string name="how_we_use_your_data_labal">Comment nous utilisons vos données :</string>
+    <string name="your_rights_labal">Vos droits :</string>
+    <string name="security_label">Sécurité :</string>
+    <string name="general_settings">Paramètres généraux</string>
+    <string name="change_password">Changer le mot de passe</string>
+    <string name="add_allergies">Ajouter des allergies</string>
+    <string name="log_out">Se déconnecter</string>
+    <string name="reset_password">Réinitialiser le mot de passe</string>
+    <string name="res_pass_des">Entrez le-mail associé à votre compte et nous vous enverrons un e-mail avec les instructions pour réinitialiser votre mot de passe.</string>
+    <string name="send">Envoyer</string>
+    <string name="email_address">Adresse e-mail</string>
+    <string name="scan">Scanner</string>
+    <string name="choose_scanner">Choisir un scanner</string>
+    <string name="barcode">Code-barres</string>
+    <string name="ocr">OCR</string>
+    <string name="already_have_an_account">Vous avez déjà un compte ?</string>
+    <string name="login">Connexion</string>
+    <string name="confirm_password">Confirmer le mot de passe</string>
+    <string name="first_name">Prénom</string>
+    <string name="last_name">Nom</string>
+    <string name="item_title_ex"><![CDATA[Sandwich au poulet rôti et farce de Waitrose]]></string>
+</resources>

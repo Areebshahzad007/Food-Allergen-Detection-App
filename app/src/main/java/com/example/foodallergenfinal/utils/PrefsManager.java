@@ -84,5 +84,21 @@ public class PrefsManager {
         return getString(context, KEY_PROFILE_IMAGE_PATH);
     }
 
+    private static final String KEY_SELECTED_LANGUAGE = "selected_language";
+
+    // Save selected language
+    public static void saveSelectedLanguage(Context context, String languageCode, String countryCode) {
+        SharedPreferences sharedPreferences = context.getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString(KEY_SELECTED_LANGUAGE, languageCode + "-" + countryCode);
+        editor.apply();
+    }
+
+    // Retrieve saved language
+    public static String getSelectedLanguage(Context context) {
+        SharedPreferences sharedPreferences = context.getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE);
+        return sharedPreferences.getString(KEY_SELECTED_LANGUAGE, "en-US"); // Default language (English-US)
+    }
+
 
 }
