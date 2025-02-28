@@ -100,6 +100,17 @@ public class CategoryProductResponse {
         @SerializedName("ingredients_tags")
         private List<String> ingredientsTags;
 
+        @SerializedName("ingredients_text")
+        private String ingredientsText;
+
+        public String getIngredientsText() {
+            return ingredientsText;
+        }
+
+        public void setIngredientsText(String ingredientsText) {
+            this.ingredientsText = ingredientsText;
+        }
+
         // Getters and Setters
         public String getId() {
             return id;

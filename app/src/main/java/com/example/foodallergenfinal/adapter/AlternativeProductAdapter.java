@@ -34,6 +34,7 @@ public class AlternativeProductAdapter extends RecyclerView.Adapter<AlternativeP
     public void onBindViewHolder(@NonNull ItemViewHolder holder, int position) {
         CategoryProductResponse.Product item = itemList.get(position);
         holder.textViewProductName.setText(item.getProductName());
+        holder.textViewIngredients.setText(item.getIngredientsText());
         // Load image using a library like Glide or Picasso
         Glide.with(holder.itemView.getContext())
                 .load(item.getImageUrl())
@@ -50,12 +51,14 @@ public class AlternativeProductAdapter extends RecyclerView.Adapter<AlternativeP
     public static class ItemViewHolder extends RecyclerView.ViewHolder{
         TextView textViewProductName; // Declare a TextView to hold item text
         ImageView imageViewProductImage; // Declare an ImageView to hold item image
+        TextView textViewIngredients;
 
         public ItemViewHolder(View itemView) {
             super(itemView);
 
             imageViewProductImage = itemView.findViewById(R.id.itemIV);
             textViewProductName = itemView.findViewById(R.id.titleTV);
+            textViewIngredients = itemView.findViewById(R.id.ingredientsTV);
         }
     }
 }
