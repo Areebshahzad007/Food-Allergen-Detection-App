@@ -81,30 +81,6 @@ public class AuthRepository {
         return future;
     }
 
-    /*public CompletableFuture<Boolean> updatePassword(String newPassword) {
-        CompletableFuture<Boolean> future = new CompletableFuture<>();
-        FirebaseUser user = firebaseAuth.getCurrentUser();
-
-        if (user == null) {
-            System.err.println(TAG + "Update password failed: User not logged in");
-            future.complete(false);
-            return future;
-        }
-
-        user.updatePassword(newPassword)
-                .addOnCompleteListener(task -> {
-                    if (task.isSuccessful()) {
-                        System.out.println(TAG + "Password update success");
-                        future.complete(true);
-                    } else {
-                        System.err.println(TAG + "Password update failed: " + task.getException());
-                        future.complete(false);
-                    }
-                });
-
-        return future;
-    }*/
-
     public CompletableFuture<Boolean> updatePassword(String oldPassword, String newPassword) {
         CompletableFuture<Boolean> future = new CompletableFuture<>();
         FirebaseUser user = firebaseAuth.getCurrentUser();

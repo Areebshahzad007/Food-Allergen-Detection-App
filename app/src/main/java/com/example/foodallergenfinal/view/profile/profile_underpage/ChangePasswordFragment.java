@@ -5,6 +5,9 @@ import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
+import android.os.Handler;
+import android.os.Looper;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -40,33 +43,62 @@ public class ChangePasswordFragment extends Fragment {
         });
 
         binding.updatePasswordBtn.setOnClickListener(v -> {
-            String currentPassword = binding.currentPasswordET.getText().toString();
-            String newPassword = binding.newPasswordET.getText().toString();
-            String repeatPassword = binding.repeatPasswordET.getText().toString();
+            String currentPassword = binding.currentPasswordET.getText().toString().trim();
+            String newPassword = binding.newPasswordET.getText().toString().trim();
+            String repeatPassword = binding.repeatPasswordET.getText().toString().trim();
 
             binding.progressBar.setVisibility(View.VISIBLE);
             binding.updatePasswordBtn.setEnabled(false);
 
             if (currentPassword.isEmpty() || newPassword.isEmpty() || repeatPassword.isEmpty()) {
                 Toast.makeText(requireContext(), "Please fill in all fields", Toast.LENGTH_SHORT).show();
-            } else if (!newPassword.equals(repeatPassword)) {
+                resetUI();
+                return;
+            }
+
+            if (!newPassword.equals(repeatPassword)) {
                 Toast.makeText(requireContext(), "Passwords do not match", Toast.LENGTH_SHORT).show();
-            } else {
-                authRepository.updatePassword(currentPassword, newPassword).thenAccept(success -> {
-                    binding.progressBar.setVisibility(View.GONE);
-                    binding.updatePasswordBtn.setEnabled(true);
+                resetUI();
+                return;
+            }
+
+            if (newPassword.length() < 6) {
+                Toast.makeText(requireContext(), "New password must be at least 6 characters", Toast.LENGTH_SHORT).show();
+                resetUI();
+                return;
+            }
+
+            // Proceed with password update
+            authRepository.updatePassword(currentPassword, newPassword).thenAccept(success -> {
+                requireActivity().runOnUiThread(() -> {
+                    resetUI();
+
+                    Log.d("TAG", "Password update success: " + success); // Debugging Log
+
                     if (success) {
                         Toast.makeText(requireContext(), "Password updated successfully", Toast.LENGTH_SHORT).show();
+
                         authRepository.logout();
-                        Intent intent = new Intent(getActivity(), MainActivity.class);
-                        startActivity(intent);
-                        assert getActivity() != null;
-                        getActivity().finish();
+
+                        new Handler(Looper.getMainLooper()).postDelayed(() -> {
+                            Intent intent = new Intent(getActivity(), MainActivity.class);
+                            startActivity(intent);
+                            if (getActivity() != null) {
+                                getActivity().finish();
+                            }
+                        }, 500);
                     } else {
-                        Toast.makeText(requireContext(), "Password update failed", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(requireContext(), "Password update failed. Check your current password and try again.", Toast.LENGTH_LONG).show();
                     }
                 });
-            }
+            });
+
+
         });
+    }
+
+    private void resetUI() {
+        binding.progressBar.setVisibility(View.GONE);
+        binding.updatePasswordBtn.setEnabled(true);
     }
 }
