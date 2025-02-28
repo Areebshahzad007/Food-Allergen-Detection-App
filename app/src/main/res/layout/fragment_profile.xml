@@ -35,11 +35,12 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageView
+    <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/profileIV"
         android:layout_width="97dp"
-        android:layout_height="95dp"
-
+        android:layout_height="97dp"
+        android:scaleType="centerCrop"
+        app:shapeAppearanceOverlay="@style/CircleImageViewStyle"
         android:src="@drawable/profile_image"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -47,8 +48,8 @@
 
     <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/editIconIV"
-        android:layout_width="15dp"
-        android:layout_height="15dp"
+        android:layout_width="28dp"
+        android:layout_height="28dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
         android:background="#B0ADAD"
@@ -96,7 +97,7 @@
         app:layout_constraintTop_toBottomOf="@id/emailTV" />
 
     <androidx.appcompat.widget.SwitchCompat
-        android:id="@+id/switchBtn"
+        android:id="@+id/modeSwitchBtn"
         android:layout_width="45dp"
         android:layout_height="40dp"
         android:layout_marginTop="10dp"
@@ -111,9 +112,9 @@
         android:layout_height="30dp"
         android:layout_marginLeft="15dp"
         android:src="@drawable/brightness"
-        app:layout_constraintBottom_toBottomOf="@id/switchBtn"
+        app:layout_constraintBottom_toBottomOf="@id/modeSwitchBtn"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@id/switchBtn" />
+        app:layout_constraintTop_toTopOf="@id/modeSwitchBtn" />
 
     <TextView
         android:id="@+id/modeTV"
@@ -124,9 +125,8 @@
         android:text="Mode"
         android:textColor="@color/black"
         android:textSize="16sp"
-
         app:layout_constraintStart_toEndOf="@id/brightnessIcon"
-        app:layout_constraintTop_toTopOf="@id/switchBtn" />
+        app:layout_constraintTop_toTopOf="@id/modeSwitchBtn" />
 
     <TextView
         android:id="@+id/modeTypeTV"
@@ -136,7 +136,7 @@
         android:fontFamily="@font/inter"
         android:text="Dark &amp; Light"
         android:textSize="14sp"
-        app:layout_constraintBottom_toBottomOf="@id/switchBtn"
+        app:layout_constraintBottom_toBottomOf="@id/modeSwitchBtn"
         app:layout_constraintStart_toEndOf="@id/brightnessIcon" />
 
     <ImageView
@@ -170,8 +170,8 @@
         android:layout_marginRight="20dp"
         android:src="@drawable/forward"
         app:layout_constraintBottom_toBottomOf="@id/keyIcon"
-        app:layout_constraintEnd_toEndOf="@id/switchBtn"
-        app:layout_constraintStart_toStartOf="@id/switchBtn"
+        app:layout_constraintEnd_toEndOf="@id/modeSwitchBtn"
+        app:layout_constraintStart_toStartOf="@id/modeSwitchBtn"
         app:layout_constraintTop_toTopOf="@id/keyIcon" />
 
     <ImageView
@@ -205,8 +205,8 @@
         android:layout_marginRight="20dp"
         android:src="@drawable/forward"
         app:layout_constraintBottom_toBottomOf="@id/languageIcon"
-        app:layout_constraintEnd_toEndOf="@id/switchBtn"
-        app:layout_constraintStart_toStartOf="@id/switchBtn"
+        app:layout_constraintEnd_toEndOf="@id/modeSwitchBtn"
+        app:layout_constraintStart_toStartOf="@id/modeSwitchBtn"
         app:layout_constraintTop_toTopOf="@id/languageIcon" />
 
     <TextView
@@ -253,8 +253,8 @@
         android:layout_marginRight="20dp"
         android:src="@drawable/forward"
         app:layout_constraintBottom_toBottomOf="@id/allergiesIcon"
-        app:layout_constraintEnd_toEndOf="@id/switchBtn"
-        app:layout_constraintStart_toStartOf="@id/switchBtn"
+        app:layout_constraintEnd_toEndOf="@id/modeSwitchBtn"
+        app:layout_constraintStart_toStartOf="@id/modeSwitchBtn"
         app:layout_constraintTop_toTopOf="@id/allergiesIcon" />
 
     <TextView
@@ -301,8 +301,8 @@
         android:layout_marginRight="20dp"
         android:src="@drawable/forward"
         app:layout_constraintBottom_toBottomOf="@id/aboutAppIcon"
-        app:layout_constraintEnd_toEndOf="@id/switchBtn"
-        app:layout_constraintStart_toStartOf="@id/switchBtn"
+        app:layout_constraintEnd_toEndOf="@id/modeSwitchBtn"
+        app:layout_constraintStart_toStartOf="@id/modeSwitchBtn"
         app:layout_constraintTop_toTopOf="@id/aboutAppIcon" />
 
     <ImageView
@@ -336,8 +336,8 @@
         android:layout_marginRight="20dp"
         android:src="@drawable/forward"
         app:layout_constraintBottom_toBottomOf="@id/privacyPolicyIcon"
-        app:layout_constraintEnd_toEndOf="@id/switchBtn"
-        app:layout_constraintStart_toStartOf="@id/switchBtn"
+        app:layout_constraintEnd_toEndOf="@id/modeSwitchBtn"
+        app:layout_constraintStart_toStartOf="@id/modeSwitchBtn"
         app:layout_constraintTop_toTopOf="@id/privacyPolicyIcon" />
 
     <androidx.appcompat.widget.AppCompatButton

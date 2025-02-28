@@ -47,4 +47,42 @@ public class PrefsManager {
         return sharedPreferences.getString(key, null);
     }
 
+
+    public static void setInt(Context context, String key, int value) {
+        SharedPreferences sharedPreferences = context.getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putInt(key, value);
+        editor.apply();
+    }
+
+    public static int getInt(Context context, String key) {
+        SharedPreferences sharedPreferences = context.getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE);
+        return sharedPreferences.getInt(key, 0); // Default value is 0 if key not found
+    }
+
+    public static void setBoolean(Context context, String key, boolean value) {
+        SharedPreferences sharedPreferences = context.getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putBoolean(key, value);
+        editor.apply();
+    }
+
+    public static boolean getBoolean(Context context, String key) {
+        SharedPreferences sharedPreferences = context.getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE);
+        return sharedPreferences.getBoolean(key, false); // Default value is false if key not found
+    }
+
+
+    private static final String KEY_PROFILE_IMAGE_PATH = "profile_image_path";
+
+    public static void saveProfileImagePath(Context context, String imagePath) {
+        setString(context, KEY_PROFILE_IMAGE_PATH, imagePath);
+    }
+
+    // Retrieve Image Path
+    public static String getProfileImagePath(Context context) {
+        return getString(context, KEY_PROFILE_IMAGE_PATH);
+    }
+
+
 }

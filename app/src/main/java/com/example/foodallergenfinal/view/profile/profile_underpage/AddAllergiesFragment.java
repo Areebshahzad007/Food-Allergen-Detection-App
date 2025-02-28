@@ -55,6 +55,10 @@ public class AddAllergiesFragment extends Fragment {
         adapter = new AllergicAdapter(allergicItems, this::saveAllergicItem);
         binding.recAllergiesItem.setAdapter(adapter);
 
+        binding.backBtn.setOnClickListener(v -> {
+            requireActivity().onBackPressed();
+        });
+
         return binding.getRoot();
     }
 
