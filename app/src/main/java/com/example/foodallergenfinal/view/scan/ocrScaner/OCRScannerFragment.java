@@ -1,12 +1,14 @@
 package com.example.foodallergenfinal.view.scan.ocrScaner;
 
 import android.Manifest;
+import android.app.AlertDialog;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
+import androidx.camera.core.Camera;
 import androidx.camera.core.CameraSelector;
 import androidx.camera.core.ImageCapture;
 import androidx.camera.core.ImageCaptureException;
@@ -44,6 +46,9 @@ public class OCRScannerFragment extends Fragment {
     private ExecutorService cameraExecutor;
     private List<String> userAllergic;
     private ImageCapture imageCapture;
+
+    private boolean isFlashOn = false;
+    private Camera cameraXInstance;
 
     public OCRScannerFragment() {
         // Required empty public constructor
@@ -89,6 +94,18 @@ public class OCRScannerFragment extends Fragment {
         binding.cancelIV2.setOnClickListener(v -> {
             binding.ltNoAllergens.setVisibility(View.GONE);
         });
+
+        binding.flashLightIV.setOnClickListener(v -> toggleFlashlight());
+    }
+
+    private void toggleFlashlight() {
+        if (cameraXInstance != null) {
+            isFlashOn = !isFlashOn;
+            cameraXInstance.getCameraControl().enableTorch(isFlashOn);
+            //binding.flashLightIV.setImageResource(isFlashOn ? R.drawable.flash_on : R.drawable.flash_off);
+        } else {
+            Toast.makeText(requireContext(), "CameraX is not initialized", Toast.LENGTH_SHORT).show();
+        }
     }
 
     private void requestCameraPermission() {
@@ -109,6 +126,10 @@ public class OCRScannerFragment extends Fragment {
                     startCamera();
                 } else {
                     Toast.makeText(requireContext(), "Camera permission is required", Toast.LENGTH_LONG).show();
+                    new AlertDialog.Builder(requireContext())
+                            .setMessage("Camera permission is required to scan barcodes.")
+                            .setPositiveButton("OK", null)
+                            .show();
                 }
             });
 
@@ -128,7 +149,10 @@ public class OCRScannerFragment extends Fragment {
                 CameraSelector cameraSelector = CameraSelector.DEFAULT_BACK_CAMERA;
 
                 cameraProvider.unbindAll();
-                cameraProvider.bindToLifecycle(this, cameraSelector, preview, imageCapture);
+                cameraXInstance = cameraProvider.bindToLifecycle(
+                        this, cameraSelector, preview, imageCapture
+                );
+                //cameraProvider.bindToLifecycle(this, cameraSelector, preview, imageCapture);
             } catch (Exception exc) {
                 Log.e("CameraX", "Use case binding failed", exc);
             }

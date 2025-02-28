@@ -58,6 +58,11 @@ public class SignUpFragment extends Fragment {
             return;
         }
 
+        if (password.length() < 6) {
+            Toast.makeText(requireContext(), "Password must be at least 6 characters", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
         binding.progressBar.setVisibility(View.VISIBLE);
         binding.signInBtn.setEnabled(false);
 

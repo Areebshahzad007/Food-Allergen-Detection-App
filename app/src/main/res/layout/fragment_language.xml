@@ -14,7 +14,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="15dp"
         android:fontFamily="@font/inter_bold"
-        android:text="Profile"
+        android:text="@string/profile"
         android:textColor="@color/black"
         android:textSize="32sp"
         android:textStyle="bold"
@@ -50,7 +50,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/inter"
-        android:text="Language"
+        android:text="@string/language"
         android:textColor="@color/black"
         android:textSize="20sp"
         android:textStyle="bold"
@@ -72,7 +72,7 @@
         app:layout_constraintTop_toBottomOf="@id/horizontalLine" />
 
     <LinearLayout
-        android:id="@+id/linearlayout1"
+        android:id="@+id/lt_engUK"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="30dp"
@@ -103,7 +103,7 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/linearlayout2"
+        android:id="@+id/lt_engUSA"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="30dp"
@@ -111,7 +111,7 @@
         android:background="@drawable/language_bg2"
         android:orientation="horizontal"
         android:padding="5dp"
-        app:layout_constraintTop_toBottomOf="@id/linearlayout1">
+        app:layout_constraintTop_toBottomOf="@id/lt_engUK">
 
         <ImageView
             android:id="@+id/usaIV"
@@ -134,7 +134,7 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/linearlayout3"
+        android:id="@+id/lt_ger"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="30dp"
@@ -142,7 +142,7 @@
         android:background="@drawable/language_bg2"
         android:orientation="horizontal"
         android:padding="5dp"
-        app:layout_constraintTop_toBottomOf="@id/linearlayout2">
+        app:layout_constraintTop_toBottomOf="@id/lt_engUSA">
 
         <ImageView
             android:id="@+id/germanIV"
@@ -165,7 +165,7 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/linearlayout4"
+        android:id="@+id/lt_fra"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="30dp"
@@ -173,7 +173,7 @@
         android:background="@drawable/language_bg2"
         android:orientation="horizontal"
         android:padding="5dp"
-        app:layout_constraintTop_toBottomOf="@id/linearlayout3">
+        app:layout_constraintTop_toBottomOf="@id/lt_ger">
 
         <ImageView
             android:id="@+id/franceIV"
@@ -196,7 +196,7 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/linearlayout5"
+        android:id="@+id/lt_spa"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="30dp"
@@ -204,7 +204,7 @@
         android:background="@drawable/language_bg2"
         android:orientation="horizontal"
         android:padding="5dp"
-        app:layout_constraintTop_toBottomOf="@id/linearlayout4">
+        app:layout_constraintTop_toBottomOf="@id/lt_fra">
 
         <ImageView
             android:id="@+id/spanishIV"

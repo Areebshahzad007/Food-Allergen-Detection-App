@@ -1,13 +1,20 @@
 package com.example.foodallergenfinal.view.scan.barcodeScanner;
 
+import static androidx.core.content.ContextCompat.getSystemService;
+
 import android.Manifest;
 import android.annotation.SuppressLint;
+import android.app.AlertDialog;
+import android.content.Context;
 import android.content.pm.PackageManager;
+import android.hardware.camera2.CameraAccessException;
+import android.hardware.camera2.CameraManager;
 import android.os.Bundle;
 
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.OptIn;
+import androidx.camera.core.Camera;
 import androidx.camera.core.CameraSelector;
 import androidx.camera.core.ExperimentalGetImage;
 import androidx.camera.core.ImageAnalysis;
@@ -24,6 +31,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+import com.example.foodallergenfinal.R;
 import com.example.foodallergenfinal.adapter.AlternativeProductAdapter;
 import com.example.foodallergenfinal.databinding.FragmentBarcodeScannerBinding;
 import com.example.foodallergenfinal.model.CategoryProductResponse;
@@ -43,11 +51,15 @@ public class BarcodeScannerFragment extends Fragment {
     private FragmentBarcodeScannerBinding binding;
     private ExecutorService cameraExecutor;
 
+    private boolean isFlashOn = false;
+    private Camera cameraXInstance;
+
     private ProductViewModel viewModel;
 
     private List<String> userAllergic;
 
     private AlternativeProductAdapter adapter;
+    private String lastScannedCode = null;
 
     public BarcodeScannerFragment() {
         // Required empty public constructor
@@ -95,17 +107,37 @@ public class BarcodeScannerFragment extends Fragment {
         binding.cancelIV2.setOnClickListener(v -> {
             binding.ltNoAllergens.setVisibility(View.GONE);
         });
+        
+        binding.flashLightIV.setOnClickListener(v -> toggleFlashlight());
+    }
+
+    private void toggleFlashlight() {
+        if (cameraXInstance != null) {
+            isFlashOn = !isFlashOn;
+            cameraXInstance.getCameraControl().enableTorch(isFlashOn);
+            //binding.flashLightIV.setImageResource(isFlashOn ? R.drawable.flash_on : R.drawable.flash_off);
+        } else {
+            Toast.makeText(requireContext(), "CameraX is not initialized", Toast.LENGTH_SHORT).show();
+        }
     }
 
     private void observerListeners() {
         // Observe the LiveData for product details
         viewModel.getProduct().observe(getViewLifecycleOwner(), responseProduct -> {
 
-            if (responseProduct != null) {
+            if (responseProduct != null && responseProduct.getProduct() != null) {
                 List<String> allergislist = responseProduct.getProduct().getAllergensTags();
                 List<String> allergensTags = new ArrayList<>();
 
-                String category = responseProduct.getProduct().getCategoriesTags().get(0);
+                List<String> categoriesTags = responseProduct.getProduct().getCategoriesTags();
+
+                // 🛑 Prevent crash: Check if categoriesTags is null or empty
+                if (categoriesTags == null || categoriesTags.isEmpty()) {
+                    Toast.makeText(requireContext(), "Category not found for this product", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                String category = categoriesTags.get(0);  // Safe to access now
                 //category = category.substring(3);
 
                 Log.d("TAG", "category: "+ category);
@@ -155,7 +187,7 @@ public class BarcodeScannerFragment extends Fragment {
 
             } else {
                 // Handle the error case
-                //Toast.makeText(requireContext(), "Product not found", Toast.LENGTH_SHORT).show();
+                Toast.makeText(requireContext(), "Product not found", Toast.LENGTH_SHORT).show();
             }
 
         });
@@ -191,6 +223,10 @@ public class BarcodeScannerFragment extends Fragment {
                     startCamera();
                 } else {
                     Toast.makeText(requireContext(), "Camera permission is required", Toast.LENGTH_LONG).show();
+                    new AlertDialog.Builder(requireContext())
+                            .setMessage("Camera permission is required to scan barcodes.")
+                            .setPositiveButton("OK", null)
+                            .show();
                 }
             });
 
@@ -210,14 +246,18 @@ public class BarcodeScannerFragment extends Fragment {
                 CameraSelector cameraSelector = CameraSelector.DEFAULT_BACK_CAMERA;
 
                 cameraProvider.unbindAll();
-                cameraProvider.bindToLifecycle(
-                        this, cameraSelector, preview, imageAnalysis);
+                cameraXInstance = cameraProvider.bindToLifecycle(
+                        this, cameraSelector, preview, imageAnalysis
+                );
+                /*cameraProvider.bindToLifecycle(
+                        this, cameraSelector, preview, imageAnalysis);*/
             } catch (Exception exc) {
                 Log.e("CameraX", "Use case binding failed", exc);
             }
         }, ContextCompat.getMainExecutor(requireContext()));
     }
 
+    @SuppressLint("SetTextI18n")
     @OptIn(markerClass = ExperimentalGetImage.class)
     private void processBarcode(ImageProxy imageProxy) {
         if (imageProxy.getImage() == null) {
@@ -230,12 +270,12 @@ public class BarcodeScannerFragment extends Fragment {
                 .addOnSuccessListener(barcodes -> {
                     for (Barcode barcode : barcodes) {
                         String code = barcode.getRawValue();
-                        if (code != null) {
+                        if (code != null && !code.equals(lastScannedCode)) {
+                            lastScannedCode = code;
                             // Inside a Fragment (FragmentA or FragmentB)
                             getActivity().runOnUiThread(() -> {
                                 binding.scannedDataTextView.setText("Scanned Code: " + code);
-                                viewModel.fetchProductDetails("6111242100992");
-                                //6111242100992
+                                viewModel.fetchProductDetails(code);
                             });
 
                         }

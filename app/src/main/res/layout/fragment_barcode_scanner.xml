@@ -15,7 +15,7 @@
         android:layout_marginTop="50dp"
         android:layout_marginBottom="15dp"
         android:fontFamily="@font/inter_bold"
-        android:text="Barcode Scanner"
+        android:text="@string/barcode_scanner"
         android:textColor="@color/black"
         android:textSize="32sp"
         android:textStyle="bold"
@@ -57,14 +57,13 @@
         android:id="@+id/scannedDataTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Scanned Data"
+        android:text="@string/scanned_data"
         android:textSize="24sp"
         android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginBottom="48dp"
-        tools:ignore="HardcodedText" />
+        android:layout_marginBottom="48dp" />
 
     <!-- Flashlight icon on the left inside the black background -->
     <ImageView
@@ -104,7 +103,7 @@
         android:layout_width="240dp"
         android:layout_height="wrap_content"
         android:fontFamily="@font/inter"
-        android:text="Point at Barcode"
+        android:text="@string/point_at_barcode"
         android:textAlignment="center"
         android:textColor="@color/white"
         android:textSize="24sp"
