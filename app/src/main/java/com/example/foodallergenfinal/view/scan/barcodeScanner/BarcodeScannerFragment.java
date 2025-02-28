@@ -129,18 +129,10 @@ public class BarcodeScannerFragment extends Fragment {
                 List<String> allergislist = responseProduct.getProduct().getAllergensTags();
                 List<String> allergensTags = new ArrayList<>();
 
-                List<String> categoriesTags = responseProduct.getProduct().getCategoriesTags();
 
-                // 🛑 Prevent crash: Check if categoriesTags is null or empty
-                if (categoriesTags == null || categoriesTags.isEmpty()) {
-                    Toast.makeText(requireContext(), "Category not found for this product", Toast.LENGTH_SHORT).show();
-                    return;
-                }
-
-                String category = categoriesTags.get(0);  // Safe to access now
                 //category = category.substring(3);
 
-                Log.d("TAG", "category: "+ category);
+                //Log.d("TAG", "category: "+ category);
 
                 if (allergislist != null && !allergislist.isEmpty()) {
                     StringBuilder allergensText = new StringBuilder();
@@ -165,6 +157,14 @@ public class BarcodeScannerFragment extends Fragment {
                                 String allergensString = allergensText.toString();
                                 binding.containsTV.setText("Contains: " + allergensString);
                                 binding.ltAllergensDetected.setVisibility(View.VISIBLE);
+
+                                List<String> categoriesTags = responseProduct.getProduct().getCategoriesTags();
+                                // 🛑 Prevent crash: Check if categoriesTags is null or empty
+                                if (categoriesTags == null || categoriesTags.isEmpty()) {
+                                    Toast.makeText(requireContext(), "Category not found for this product", Toast.LENGTH_SHORT).show();
+                                    return;
+                                }
+                                String category = categoriesTags.get(0);  // Safe to access now
 
                                 viewModel.fetchCategoryProducts(
                                         category.substring(3),

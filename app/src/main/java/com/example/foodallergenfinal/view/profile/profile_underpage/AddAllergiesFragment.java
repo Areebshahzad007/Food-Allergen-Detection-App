@@ -39,12 +39,11 @@ public class AddAllergiesFragment extends Fragment {
         allergicItems.add(new AllergicItem(R.drawable.peanuts1,"Peanuts", false));
         allergicItems.add(new AllergicItem(R.drawable.soy,"Soybean", false));
         allergicItems.add(new AllergicItem(R.drawable.hazelnut,"Tree Nut", false));
-
-        allergicItems.add(new AllergicItem(R.drawable.hazelnut,"Milk", false));
-        allergicItems.add(new AllergicItem(R.drawable.hazelnut,"Shellfish", false));
-        allergicItems.add(new AllergicItem(R.drawable.hazelnut,"Mustard", false));
-        allergicItems.add(new AllergicItem(R.drawable.hazelnut,"Sesame", false));
-        allergicItems.add(new AllergicItem(R.drawable.hazelnut,"Gelatin", false));
+        allergicItems.add(new AllergicItem(R.drawable.ic_milk,"Milk", false));
+        allergicItems.add(new AllergicItem(R.drawable.ic_shellfish,"Shellfish", false));
+        allergicItems.add(new AllergicItem(R.drawable.ic_mustarf,"Mustard", false));
+        allergicItems.add(new AllergicItem(R.drawable.ic_sesame,"Sesame", false));
+        allergicItems.add(new AllergicItem(R.drawable.ic_gelatin,"Gelatin", false));
 
         // Load saved allergies
         Set<String> savedItems = PrefsManager.getSavedAllergies(requireContext());

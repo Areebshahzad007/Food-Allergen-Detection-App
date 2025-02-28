@@ -2,8 +2,8 @@
     <!-- Base application theme. -->
     <style name="Base.Theme.FoodAllergenFinal" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
-        <item name="colorPrimary">@color/white</item>
-        <item name="colorPrimaryVariant">@color/white</item>
+        <item name="colorPrimary">#AFAAAA</item>
+        <item name="colorPrimaryVariant">@color/black</item>
         <item name="colorOnPrimary">@color/white</item>
     </style>
 
