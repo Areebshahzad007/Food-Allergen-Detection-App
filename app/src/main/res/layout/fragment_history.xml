@@ -34,6 +34,17 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        tools:listitem="@layout/item_design"
+        app:layout_constraintTop_toBottomOf="@id/horizontalLine"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginTop="12dp"
+        android:layout_marginBottom="48dp"/>
+
     <!-- TextView displaying a message if there are no products -->
     <TextView
         android:id="@+id/noProductTV"
@@ -64,7 +75,7 @@
         android:textSize="20sp"
         app:layout_constraintTop_toBottomOf="@id/noProductTV" />
 
-    <!-- Bottom navigation view for navigation bar -->
+
 
 
 

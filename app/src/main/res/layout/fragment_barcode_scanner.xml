@@ -76,14 +76,14 @@
         app:layout_constraintTop_toTopOf="@id/viewFinder" />
 
     <!-- Speaker icon on the right inside the black background -->
-    <ImageView
+    <!--<ImageView
         android:id="@+id/speakerIV"
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:layout_margin="20dp"
         android:src="@drawable/speaker"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@id/viewFinder" />
+        app:layout_constraintTop_toTopOf="@id/viewFinder" />-->
 
     <!-- White rectangle placed in the center within the black background -->
     <ImageView
@@ -122,7 +122,7 @@
         android:visibility="gone"
         android:background="@drawable/manual_rectangle_for_ocr_scanner"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/speakerIV">
+        app:layout_constraintTop_toBottomOf="@id/flashLightIV">
 
         <!-- Error ImageView (Displays an error icon) -->
         <ImageView
@@ -224,7 +224,7 @@
         android:visibility="gone"
         android:background="@drawable/manual_rectangle_for_ocr_scanner"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/speakerIV">
+        app:layout_constraintTop_toBottomOf="@id/flashLightIV">
 
         <!-- Error ImageView (Displays an Check Mark icon) -->
         <ImageView

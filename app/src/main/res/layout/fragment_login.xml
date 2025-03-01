@@ -35,45 +35,48 @@
         app:layout_constraintTop_toBottomOf="@id/logo" />
 
     <!--Email and Password EditText fields, with appropriate hints and styles.-->
-    <EditText
-        android:id="@+id/emailET"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/lt_emailET"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="30dp"
         android:layout_marginTop="40dp"
-        android:background="@drawable/edit_text_bg"
         android:fontFamily="@font/inter"
         android:hint="@string/email"
         android:textColorHint="#8D8D8D"
         android:inputType="textEmailAddress"
         android:padding="6dp"
         android:textSize="20sp"
-        app:layout_constraintTop_toBottomOf="@id/signInTV" />
+        app:layout_constraintTop_toBottomOf="@id/signInTV">
 
-    <EditText
-        android:id="@+id/passwordET"
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/emailET"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/lt_passwordEt"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="30dp"
-        android:layout_marginTop="20dp"
-        android:background="@drawable/edit_text_bg"
+        android:layout_marginTop="8dp"
         android:fontFamily="@font/inter"
         android:hint="@string/password"
         android:textColorHint="#8D8D8D"
         android:inputType="textPassword"
         android:padding="6dp"
         android:textSize="20sp"
-        app:layout_constraintTop_toBottomOf="@id/emailET" />
+        app:endIconMode="password_toggle"
+        app:layout_constraintTop_toBottomOf="@id/lt_emailET">
 
-    <ImageView
-        android:id="@+id/passwordVisibility"
-        android:layout_width="32dp"
-        android:layout_height="28dp"
-        android:layout_marginRight="10dp"
-        android:src="@drawable/show_password"
-        app:layout_constraintBottom_toBottomOf="@id/passwordET"
-        app:layout_constraintEnd_toEndOf="@id/passwordET"
-        app:layout_constraintTop_toTopOf="@id/passwordET" />
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/passwordET"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+    </com.google.android.material.textfield.TextInputLayout>
 
     <ImageView
         android:id="@+id/rectangle_shape"
@@ -90,8 +93,8 @@
         android:fontFamily="@font/inter"
         android:text="@string/forgot_your_password"
         android:textSize="12sp"
-        app:layout_constraintEnd_toEndOf="@id/passwordET"
-        app:layout_constraintTop_toBottomOf="@id/passwordET" />
+        app:layout_constraintEnd_toEndOf="@id/lt_passwordEt"
+        app:layout_constraintTop_toBottomOf="@id/lt_passwordEt" />
 
     <!--Sign In Button (AppCompatButton) for authentication.-->
     <androidx.appcompat.widget.AppCompatButton
@@ -113,7 +116,7 @@
         android:id="@+id/lt_btnSignup"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="40dp"
         android:gravity="center"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

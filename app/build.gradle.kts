@@ -77,8 +77,12 @@ dependencies {
     implementation(libs.camera.core)
     implementation(libs.camera.lifecycle)
     implementation(libs.camera.view)
-    implementation("androidx.camera:camera-camera2:1.3.0")
+    implementation(libs.camera.camera2)
 
     // glide
     implementation (libs.glide)
+
+    //room
+    implementation(libs.room.runtime)
+    annotationProcessor(libs.room.compiler)
 }

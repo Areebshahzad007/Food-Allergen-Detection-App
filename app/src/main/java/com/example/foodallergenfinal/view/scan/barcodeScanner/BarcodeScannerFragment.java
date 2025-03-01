@@ -34,6 +34,8 @@ import android.widget.Toast;
 import com.example.foodallergenfinal.R;
 import com.example.foodallergenfinal.adapter.AlternativeProductAdapter;
 import com.example.foodallergenfinal.databinding.FragmentBarcodeScannerBinding;
+import com.example.foodallergenfinal.db.Product;
+import com.example.foodallergenfinal.db.repo.DbProductViewModel;
 import com.example.foodallergenfinal.model.CategoryProductResponse;
 import com.example.foodallergenfinal.utils.PrefsManager;
 import com.example.foodallergenfinal.view.scan.ProductViewModel;
@@ -61,6 +63,8 @@ public class BarcodeScannerFragment extends Fragment {
     private AlternativeProductAdapter adapter;
     private String lastScannedCode = null;
 
+    private DbProductViewModel dbProductViewModel;
+
     public BarcodeScannerFragment() {
         // Required empty public constructor
     }
@@ -76,6 +80,7 @@ public class BarcodeScannerFragment extends Fragment {
         cameraExecutor = Executors.newSingleThreadExecutor();
 
         viewModel = new ViewModelProvider(this).get(ProductViewModel.class);
+        dbProductViewModel = new ViewModelProvider(this).get(DbProductViewModel.class);
 
         // Initialize userAllergic list
         userAllergic = new ArrayList<>();
@@ -130,9 +135,14 @@ public class BarcodeScannerFragment extends Fragment {
                 List<String> allergensTags = new ArrayList<>();
 
 
-                //category = category.substring(3);
-
-                //Log.d("TAG", "category: "+ category);
+                // save product to room
+                Product product = new Product(
+                        allergensTags,
+                        responseProduct.getProduct().getImageUrl(),
+                        responseProduct.getProduct().getIngredientsText(),
+                        responseProduct.getProduct().getProductName()
+                );
+                dbProductViewModel.insert(product);
 
                 if (allergislist != null && !allergislist.isEmpty()) {
                     StringBuilder allergensText = new StringBuilder();
@@ -159,7 +169,7 @@ public class BarcodeScannerFragment extends Fragment {
                                 binding.ltAllergensDetected.setVisibility(View.VISIBLE);
 
                                 List<String> categoriesTags = responseProduct.getProduct().getCategoriesTags();
-                                // 🛑 Prevent crash: Check if categoriesTags is null or empty
+                                // Prevent crash: Check if categoriesTags is null or empty
                                 if (categoriesTags == null || categoriesTags.isEmpty()) {
                                     Toast.makeText(requireContext(), "Category not found for this product", Toast.LENGTH_SHORT).show();
                                     return;
