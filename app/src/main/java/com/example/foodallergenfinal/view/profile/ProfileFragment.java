@@ -39,6 +39,7 @@ public class ProfileFragment extends Fragment {
     private AuthRepository authRepository;
 
     private int cameraRequestCode = 201;
+    private String email;
 
     public ProfileFragment() {
         // Required empty public constructor
@@ -52,11 +53,14 @@ public class ProfileFragment extends Fragment {
         /*boolean isDarkMode = PrefsManager.getBoolean(requireContext(), "is_dark_mode");
         binding.modeSwitchBtn.setChecked(isDarkMode);*/
 
-        String firstName = PrefsManager.getString(requireContext(), "first_name");
-        String lastName = PrefsManager.getString(requireContext(), "last_name");
+        email = PrefsManager.getString(requireContext(), "email");
+        String firstName = PrefsManager.getString(requireContext(), "first_name"+email);
+        String lastName = PrefsManager.getString(requireContext(), "last_name"+email);
         String fullName = firstName + " " + lastName;
         binding.profileName.setText(fullName);
-        binding.emailTV.setText(PrefsManager.getString(requireContext(), "email"));
+        binding.emailTV.setText(email);
+
+        loadSavedImage(); // Load image when fragment is opened
 
         setupListeners();
 
@@ -64,20 +68,6 @@ public class ProfileFragment extends Fragment {
     }
 
     private void setupListeners() {
-        /*binding.modeSwitchBtn.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (isChecked) {
-                    // Enable Dark Mode
-                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
-                    PrefsManager.setBoolean(requireContext(),"is_dark_mode",true);
-                } else {
-                    // Disable Dark Mode
-                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
-                    PrefsManager.setBoolean(requireContext(),"is_dark_mode",false);
-                }
-            }
-        });*/
 
         binding.changePasswordTV.setOnClickListener(v -> {
             Navigation.findNavController(binding.getRoot())
@@ -153,7 +143,7 @@ public class ProfileFragment extends Fragment {
             fos.flush();
 
             // Save image path in SharedPreferences using PrefsManager
-            PrefsManager.saveProfileImagePath(requireContext(), imageFile.getAbsolutePath());
+            PrefsManager.saveProfileImagePath(requireContext(), "profile_image_path"+email, imageFile.getAbsolutePath());
 
         } catch (IOException e) {
             e.printStackTrace();
@@ -162,7 +152,7 @@ public class ProfileFragment extends Fragment {
 
     // Load and Display Saved Image
     private void loadSavedImage() {
-        String imagePath = PrefsManager.getProfileImagePath(requireContext());
+        String imagePath = PrefsManager.getProfileImagePath(requireContext(),"profile_image_path"+email);
 
         if (imagePath != null) {
             File imgFile = new File(imagePath);
@@ -188,7 +178,6 @@ public class ProfileFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        loadSavedImage(); // Load image when fragment is opened
 
         // Retrieve saved dark mode preference
         boolean isDarkMode = PrefsManager.getBoolean(requireContext(), "is_dark_mode");

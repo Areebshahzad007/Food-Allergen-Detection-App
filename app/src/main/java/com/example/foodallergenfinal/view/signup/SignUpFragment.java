@@ -72,8 +72,8 @@ public class SignUpFragment extends Fragment {
 
             if (success) {
                 PrefsManager.setString(requireContext(), "email", email);
-                PrefsManager.setString(requireContext(), "first_name", firstName);
-                PrefsManager.setString(requireContext(), "last_name", lastName);
+                PrefsManager.setString(requireContext(), "first_name"+email, firstName);
+                PrefsManager.setString(requireContext(), "last_name"+email, lastName);
 
                 Toast.makeText(requireContext(), "Sign Up Successful", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(getActivity(), HomeActivity.class);

@@ -60,5 +60,7 @@
     <string name="first_name">First Name</string>
     <string name="last_name">Last Name</string>
     <string name="item_title_ex"><![CDATA[Waitrose Roast Chicken & Stuffing Sandwich]]></string>
+    <string name="mode">Mode</string>
+    <string name="dark_amp_light"><![CDATA[Dark & Light]]></string>
 
 </resources>

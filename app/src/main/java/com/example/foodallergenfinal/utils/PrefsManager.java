@@ -75,13 +75,13 @@ public class PrefsManager {
 
     private static final String KEY_PROFILE_IMAGE_PATH = "profile_image_path";
 
-    public static void saveProfileImagePath(Context context, String imagePath) {
-        setString(context, KEY_PROFILE_IMAGE_PATH, imagePath);
+    public static void saveProfileImagePath(Context context, String key, String imagePath) {
+        setString(context, key, imagePath);
     }
 
     // Retrieve Image Path
-    public static String getProfileImagePath(Context context) {
-        return getString(context, KEY_PROFILE_IMAGE_PATH);
+    public static String getProfileImagePath(Context context, String key) {
+        return getString(context, key);
     }
 
     private static final String KEY_SELECTED_LANGUAGE = "selected_language";
