@@ -62,5 +62,7 @@
     <string name="item_title_ex"><![CDATA[Waitrose Roast Chicken & Stuffing Sandwich]]></string>
     <string name="mode">Mode</string>
     <string name="dark_amp_light"><![CDATA[Dark & Light]]></string>
+    <string name="information">Information</string>
+    <string name="your_allergens">Your Allergens</string>
 
 </resources>

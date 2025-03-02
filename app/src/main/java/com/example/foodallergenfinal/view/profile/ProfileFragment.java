@@ -69,27 +69,27 @@ public class ProfileFragment extends Fragment {
 
     private void setupListeners() {
 
-        binding.changePasswordTV.setOnClickListener(v -> {
+        binding.ltPassword.setOnClickListener(v -> {
             Navigation.findNavController(binding.getRoot())
                     .navigate(R.id.action_profileFragment_to_changePasswordFragment);
         });
 
-        binding.languageTV.setOnClickListener(v -> {
+        binding.ltLanguage.setOnClickListener(v -> {
             Navigation.findNavController(binding.getRoot())
                     .navigate(R.id.action_profileFragment_to_languageFragment);
         });
 
-        binding.addAllergiesTV.setOnClickListener(v -> {
+        binding.ltAllergies.setOnClickListener(v -> {
             Navigation.findNavController(binding.getRoot())
                     .navigate(R.id.action_profileFragment_to_addAllergiesFragment);
         });
 
-        binding.aboutAppTV.setOnClickListener(v -> {
+        binding.ltAboutApp.setOnClickListener(v -> {
             Navigation.findNavController(binding.getRoot())
                     .navigate(R.id.action_profileFragment_to_aboutAppFragment);
         });
 
-        binding.privacyPolicyTV.setOnClickListener(v -> {
+        binding.ltPrivacyPolicy.setOnClickListener(v -> {
             Navigation.findNavController(binding.getRoot())
                     .navigate(R.id.action_profileFragment_to_privacyPolicyFragment);
         });
@@ -143,7 +143,7 @@ public class ProfileFragment extends Fragment {
             fos.flush();
 
             // Save image path in SharedPreferences using PrefsManager
-            PrefsManager.saveProfileImagePath(requireContext(), "profile_image_path"+email, imageFile.getAbsolutePath());
+            PrefsManager.saveProfileImagePath(requireContext(), email, imageFile.getAbsolutePath());
 
         } catch (IOException e) {
             e.printStackTrace();
@@ -152,7 +152,7 @@ public class ProfileFragment extends Fragment {
 
     // Load and Display Saved Image
     private void loadSavedImage() {
-        String imagePath = PrefsManager.getProfileImagePath(requireContext(),"profile_image_path"+email);
+        String imagePath = PrefsManager.getProfileImagePath(requireContext(),email);
 
         if (imagePath != null) {
             File imgFile = new File(imagePath);
