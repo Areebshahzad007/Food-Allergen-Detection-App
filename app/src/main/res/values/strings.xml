@@ -64,5 +64,6 @@
     <string name="dark_amp_light"><![CDATA[Dark & Light]]></string>
     <string name="information">Information</string>
     <string name="your_allergens">Your Allergens</string>
+    <string name="clear_history">Clear History</string>
 
 </resources>

@@ -18,5 +18,8 @@ public interface ProductDao {
 
     @Delete
     void deleteProduct(Product product);
+
+    @Query("DELETE FROM products")
+    void allDelete();  // This method will delete all products
 }
 

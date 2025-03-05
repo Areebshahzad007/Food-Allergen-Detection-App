@@ -32,4 +32,8 @@ public class DbProductViewModel extends AndroidViewModel {
         repository.delete(product);
     }
 
+    public void allDelete() {
+        repository.allDelete();  // Calling allDelete from repository
+    }
+
 }

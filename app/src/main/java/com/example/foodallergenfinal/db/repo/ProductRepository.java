@@ -33,4 +33,8 @@ public class ProductRepository {
         executorService.execute(() -> productDao.deleteProduct(product));
     }
 
+    public void allDelete() {
+        executorService.execute(() -> productDao.allDelete());  // Calling allDelete from DAO
+    }
+
 }

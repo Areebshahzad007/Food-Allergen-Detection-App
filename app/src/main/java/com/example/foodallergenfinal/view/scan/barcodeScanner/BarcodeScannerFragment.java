@@ -1,14 +1,9 @@
 package com.example.foodallergenfinal.view.scan.barcodeScanner;
 
-import static androidx.core.content.ContextCompat.getSystemService;
-
 import android.Manifest;
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
-import android.content.Context;
 import android.content.pm.PackageManager;
-import android.hardware.camera2.CameraAccessException;
-import android.hardware.camera2.CameraManager;
 import android.os.Bundle;
 
 import androidx.activity.result.ActivityResultLauncher;

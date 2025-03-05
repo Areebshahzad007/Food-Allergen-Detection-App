@@ -1,5 +1,6 @@
 package com.example.foodallergenfinal.view.history;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -26,6 +27,7 @@ public class HistoryFragment extends Fragment {
         // Required empty public constructor
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
@@ -36,6 +38,16 @@ public class HistoryFragment extends Fragment {
 
         binding.scanYourProductButton.setOnClickListener(v -> {
             Navigation.findNavController(binding.getRoot()).navigate(R.id.action_historyFragment_to_barcodeScannerFragment);
+        });
+
+        binding.btnMore.setOnClickListener(v->{
+            binding.btnClearHistory.setVisibility(View.VISIBLE);
+        });
+
+        binding.btnClearHistory.setOnClickListener(v->{
+            dbProductViewModel.allDelete();
+            recyclerViewSet();
+            binding.btnClearHistory.setVisibility(View.GONE);
         });
 
         return binding.getRoot();
@@ -50,11 +62,14 @@ public class HistoryFragment extends Fragment {
                     adapter.removeItem(product);
                     Toast.makeText(requireContext(), "Product deleted", Toast.LENGTH_SHORT).show();
                 });
+
                 binding.recyclerView.setAdapter(adapter);
                 binding.noProductTV.setVisibility(View.GONE);
                 binding.scanYourProductButton.setVisibility(View.GONE);
             } else {
-                Toast.makeText(requireContext(), "No products found", Toast.LENGTH_SHORT).show();
+                binding.recyclerView.setVisibility(View.GONE);
+                binding.noProductTV.setVisibility(View.VISIBLE);
+                binding.scanYourProductButton.setVisibility(View.VISIBLE);
             }
         });
     }
