@@ -31,16 +31,19 @@ public class LanguageFragment extends Fragment {
 
         binding.backBtn.setOnClickListener(v -> requireActivity().onBackPressed());
 
-        binding.ltEngUK.setOnClickListener(v -> changeLanguage("en", "GB"));
-        binding.ltEngUSA.setOnClickListener(v -> changeLanguage("en", "US"));
-        binding.ltGer.setOnClickListener(v -> changeLanguage("de", "DE"));
-        binding.ltFra.setOnClickListener(v -> changeLanguage("fr", "FR"));
-        binding.ltSpa.setOnClickListener(v -> changeLanguage("es", "ES"));
+        binding.ltEngUK.setOnClickListener(v -> selectLanguage("en", "GB", binding.ltEngUK));
+        binding.ltEngUSA.setOnClickListener(v -> selectLanguage("en", "US", binding.ltEngUSA));
+        binding.ltGer.setOnClickListener(v -> selectLanguage("de", "DE", binding.ltGer));
+        binding.ltFra.setOnClickListener(v -> selectLanguage("fr", "FR", binding.ltFra));
+        binding.ltSpa.setOnClickListener(v -> selectLanguage("es", "ES", binding.ltSpa));
+
+        // Restore selected language background
+        restoreSelectedLanguageBackground();
 
         return binding.getRoot();
     }
 
-    private void changeLanguage(String languageCode, String countryCode) {
+    private void selectLanguage(String languageCode, String countryCode, View selectedView) {
         Locale locale = new Locale(languageCode, countryCode);
         Locale.setDefault(locale);
         Resources resources = getResources();
@@ -52,7 +55,45 @@ public class LanguageFragment extends Fragment {
         // Save the selected language
         PrefsManager.saveSelectedLanguage(requireContext(), languageCode, countryCode);
 
+        // Update UI backgrounds
+        updateLanguageBackgrounds(selectedView);
+
         // Restart activity to apply changes
         requireActivity().recreate();
+    }
+
+    private void updateLanguageBackgrounds(View selectedView) {
+        // Reset all to unselected background
+        binding.ltEngUK.setBackgroundResource(R.drawable.language_bg2);
+        binding.ltEngUSA.setBackgroundResource(R.drawable.language_bg2);
+        binding.ltGer.setBackgroundResource(R.drawable.language_bg2);
+        binding.ltFra.setBackgroundResource(R.drawable.language_bg2);
+        binding.ltSpa.setBackgroundResource(R.drawable.language_bg2);
+
+        // Set selected to active background
+        selectedView.setBackgroundResource(R.drawable.language_bg);
+    }
+
+    private void restoreSelectedLanguageBackground() {
+        String selectedLanguage = PrefsManager.getSelectedLanguage(requireContext());
+        if (selectedLanguage == null) return;
+
+        String[] languageParts = selectedLanguage.split("-");
+        if (languageParts.length != 2) return;
+
+        String languageCode = languageParts[0];
+        String countryCode = languageParts[1];
+
+        if (languageCode.equals("en") && countryCode.equals("GB")) {
+            updateLanguageBackgrounds(binding.ltEngUK);
+        } else if (languageCode.equals("en") && countryCode.equals("US")) {
+            updateLanguageBackgrounds(binding.ltEngUSA);
+        } else if (languageCode.equals("de") && countryCode.equals("DE")) {
+            updateLanguageBackgrounds(binding.ltGer);
+        } else if (languageCode.equals("fr") && countryCode.equals("FR")) {
+            updateLanguageBackgrounds(binding.ltFra);
+        } else if (languageCode.equals("es") && countryCode.equals("ES")) {
+            updateLanguageBackgrounds(binding.ltSpa);
+        }
     }
 }

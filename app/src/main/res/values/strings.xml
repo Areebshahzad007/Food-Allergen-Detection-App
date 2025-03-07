@@ -65,5 +65,8 @@
     <string name="information">Information</string>
     <string name="your_allergens">Your Allergens</string>
     <string name="clear_history">Clear History</string>
+    <string name="repeat_password">Repeat Password</string>
+    <string name="new_password">New Password</string>
+    <string name="current_password">Current Password</string>
 
 </resources>
