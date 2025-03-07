@@ -75,11 +75,17 @@ public class SignUpFragment extends Fragment {
                 PrefsManager.setString(requireContext(), "first_name"+email, firstName);
                 PrefsManager.setString(requireContext(), "last_name"+email, lastName);
 
-                Toast.makeText(requireContext(), "Sign Up Successful", Toast.LENGTH_SHORT).show();
+                /*Toast.makeText(requireContext(), "Sign Up Successful", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(getActivity(), HomeActivity.class);
                 startActivity(intent);
                 assert getActivity() != null;
-                getActivity().finish();
+                getActivity().finish();*/
+
+                Toast.makeText(requireContext(), "Sign Up Successful. Please verify your email before logging in.", Toast.LENGTH_LONG).show();
+
+                // Navigate back to login screen for verification
+                Navigation.findNavController(binding.getRoot()).navigate(R.id.action_signUpFragment_to_loginFragment);
+
             } else {
                 Toast.makeText(requireContext(), "Sign Up Failed", Toast.LENGTH_SHORT).show();
             }

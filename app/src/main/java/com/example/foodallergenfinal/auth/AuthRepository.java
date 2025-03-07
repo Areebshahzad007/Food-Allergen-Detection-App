@@ -19,8 +19,8 @@ public class AuthRepository {
 
 
     public boolean isLoggedIn() {
-        if (firebaseAuth.getCurrentUser() != null) {
-            System.out.println(tag + "User is logged in");
+        if (firebaseAuth.getCurrentUser() != null && firebaseAuth.getCurrentUser().isEmailVerified()) {
+            System.out.println(tag + "User is logged in and email verified");
             return true;
         }
         return false;
@@ -32,11 +32,23 @@ public class AuthRepository {
         firebaseAuth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(task -> {
                     if (task.isSuccessful()) {
-                        System.out.println(tag + "signup success");
-                        signIn(email, password);
-                        future.complete(true);
+                        FirebaseUser user = firebaseAuth.getCurrentUser();
+                        if (user != null) {
+                            user.sendEmailVerification().addOnCompleteListener(verificationTask -> {
+                                if (verificationTask.isSuccessful()) {
+                                    System.out.println(tag + "Signup success, verification email sent");
+                                    future.complete(true);
+                                } else {
+                                    System.out.println(tag + "Signup success, but verification email failed");
+                                    future.complete(false);
+                                }
+                            });
+                        } else {
+                            System.out.println(tag + "Signup failure: User null");
+                            future.complete(false);
+                        }
                     } else {
-                        System.out.println(tag + "signup failure");
+                        System.out.println(tag + "Signup failure");
                         future.complete(false);
                     }
                 });
@@ -44,16 +56,23 @@ public class AuthRepository {
         return future;
     }
 
+
     public CompletableFuture<Boolean> signIn(String email, String password) {
         CompletableFuture<Boolean> future = new CompletableFuture<>();
 
         firebaseAuth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener(task -> {
                     if (task.isSuccessful()) {
-                        System.out.println(tag + "signin success");
-                        future.complete(true);
+                        FirebaseUser user = firebaseAuth.getCurrentUser();
+                        if (user != null && user.isEmailVerified()) {
+                            System.out.println(tag + "Signin success");
+                            future.complete(true);
+                        } else {
+                            System.out.println(tag + "Signin failed: Email not verified");
+                            future.complete(false);
+                        }
                     } else {
-                        System.out.println(tag + "signin failure");
+                        System.out.println(tag + "Signin failure");
                         future.complete(false);
                     }
                 });
