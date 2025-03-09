@@ -97,7 +97,7 @@ public class PrefsManager {
     // Retrieve saved language
     public static String getSelectedLanguage(Context context) {
         SharedPreferences sharedPreferences = context.getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE);
-        return sharedPreferences.getString(KEY_SELECTED_LANGUAGE, "en-US"); // Default language (English-US)
+        return sharedPreferences.getString(KEY_SELECTED_LANGUAGE, ""); // Default language (English-US)
     }
 
 

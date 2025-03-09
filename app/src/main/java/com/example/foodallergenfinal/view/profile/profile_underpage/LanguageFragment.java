@@ -75,25 +75,29 @@ public class LanguageFragment extends Fragment {
     }
 
     private void restoreSelectedLanguageBackground() {
+        binding.checkMarkIV.setImageResource(R.drawable.checkmark2);
+
         String selectedLanguage = PrefsManager.getSelectedLanguage(requireContext());
-        if (selectedLanguage == null) return;
+        if (selectedLanguage != null) {
+            String[] languageParts = selectedLanguage.split("-");
+            if (languageParts.length != 2) return;
 
-        String[] languageParts = selectedLanguage.split("-");
-        if (languageParts.length != 2) return;
+            String languageCode = languageParts[0];
+            String countryCode = languageParts[1];
 
-        String languageCode = languageParts[0];
-        String countryCode = languageParts[1];
+            if (languageCode.equals("en") && countryCode.equals("GB")) {
+                updateLanguageBackgrounds(binding.ltEngUK);
+            } else if (languageCode.equals("en") && countryCode.equals("US")) {
+                updateLanguageBackgrounds(binding.ltEngUSA);
+            } else if (languageCode.equals("de") && countryCode.equals("DE")) {
+                updateLanguageBackgrounds(binding.ltGer);
+            } else if (languageCode.equals("fr") && countryCode.equals("FR")) {
+                updateLanguageBackgrounds(binding.ltFra);
+            } else if (languageCode.equals("es") && countryCode.equals("ES")) {
+                updateLanguageBackgrounds(binding.ltSpa);
+            }
 
-        if (languageCode.equals("en") && countryCode.equals("GB")) {
-            updateLanguageBackgrounds(binding.ltEngUK);
-        } else if (languageCode.equals("en") && countryCode.equals("US")) {
-            updateLanguageBackgrounds(binding.ltEngUSA);
-        } else if (languageCode.equals("de") && countryCode.equals("DE")) {
-            updateLanguageBackgrounds(binding.ltGer);
-        } else if (languageCode.equals("fr") && countryCode.equals("FR")) {
-            updateLanguageBackgrounds(binding.ltFra);
-        } else if (languageCode.equals("es") && countryCode.equals("ES")) {
-            updateLanguageBackgrounds(binding.ltSpa);
+            binding.checkMarkIV.setImageResource(R.drawable.check_mark);
         }
     }
 }
