@@ -1,5 +1,5 @@
 package com.example.foodallergenfinal.db;
-
+// start....
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
@@ -9,7 +9,7 @@ import java.util.List;
 public class Product {
     @PrimaryKey(autoGenerate = true)
     private int id;
-
+//
     private List<String> allergensTags;
     //private String categoriesTags;
     private String imageUrl;
